@@ -1,0 +1,75 @@
+// переважаючі характеристики сторінки
+body {
+    color: $color-primary-dark;
+    font-family: $font-site;
+    @include font(500, 18, 22, 0.02);
+}
+
+// Видалення крапок списку
+.list {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+// видалення підкреслювання ссилок
+.link {
+    text-decoration: none;
+}
+
+// Скриття елемента
+.is-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+// центрування і обмеження контенту
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 320px;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    @media screen and (min-width: $mobile-width) {
+        width: $mobile-width;
+    }
+
+    @media screen and (min-width: $table-width) {
+        width: $table-width;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        width: $desktop-width;
+    }
+}
+
+// обнулення відступів
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+// видалення відступів картинок
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+// видалення стандартних рамок у форм при фокусі
+input,
+textarea {
+    outline: none;
+}
