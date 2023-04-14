@@ -6,13 +6,15 @@
 
 .header {
     margin: 20px;
+    padding-bottom: 20px;
+    padding-top: 16px;
     height: 100vh;
     background-image: url(../images/myLibrary/bg-mob-1x.jpg);
     background-repeat: no-repeat;
-    padding-top: 16px;
-    padding-bottom: 20px;
-    border-radius: 10px;
+    background-position: center;
     background-size: cover;
+    border-radius: 10px;
+   
 
     @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
