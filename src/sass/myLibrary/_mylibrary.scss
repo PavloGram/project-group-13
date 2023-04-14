@@ -1,0 +1,203 @@
+:root {
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --accent-color: #B92F2C;
+}
+
+.header {
+    margin: 20px;
+    height: 100vh;
+    background-image: url(../images/myLibrary/bg-mob-1x.jpg);
+    background-repeat: no-repeat;
+    padding-top: 16px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    background-size: cover;
+
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        background-image: url(../images/myLibrary/bg-mob-2x.jpg);
+    }
+
+    @media screen and(min-width:768px) {
+        margin: 30px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        max-height: 222px;
+        background-image: url(../images/myLibrary/bg-tab-1x.jpg);
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        background-size: cover;
+
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: url(../images/myLibrary/bg-tab-2x.jpg);
+        }
+    }
+
+    @media screen and(min-width:1280px) {
+        padding-top: 16px;
+        padding-bottom: 32px;
+        max-height: 316px;
+        background-image: url(../images/myLibrary/bg-desc-1x.jpg);
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        background-size: cover;
+
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: url(../images/myLibrary/bg-desc-2x.jpg);
+        }
+    }
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media screen and (min-width: 480px) {
+        max-width: 480px;
+    }
+
+    @media screen and (min-width: 768px) {
+        max-width: 768px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        max-width: 1200px;
+    }
+}
+
+.container-wrap {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    // justify-content: space-between;
+    @media screen and(min-width:768px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+.header-nav {
+    margin-bottom: 300px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 4px;
+
+    @media screen and(min-width:1280px) {
+        gap: 8px;
+    }
+}
+
+// .nav-list__item {}
+
+.nav-list__link {
+    display: inline-block;
+    padding: 10px 26px;
+    background-color: var(--white-color);
+    border-radius: 100px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    text-transform: uppercase;
+    color: var(--black-color);
+}
+
+.current {
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 auto;
+    margin-bottom: 16px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.19;
+    color: var(--white-color);
+
+    @media screen and(min-width:768px) {
+        position: absolute;
+        bottom: 0;
+        margin: 0;
+
+        font-size: 40px;
+        line-height: 1.17;
+    }
+
+    @media screen and (min-width: 1280px) {
+        font-size: 64px;
+        line-height: 1.17;
+    }
+
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+
+    @media screen and(min-width:768px) {
+        width: 40px;
+        height: 40px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 59px;
+        height: 59px;
+    }
+
+}
+
+.btn-list {
+    display: flex;
+    margin: 0 auto;
+    gap: 4px;
+
+    @media screen and(min-width:768px) {
+        margin: 0;
+    }
+
+    @media screen and(min-width:1280px) {
+        gap: 8px;
+    }
+}
+
+.btn {
+    display: block;
+    padding: 10px 24px;
+    background-color: var(--white-color);
+    border: none;
+    border-radius: 100px;
+
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    color: var(--accent-color);
+    transition: all 250ms ease;
+
+    &:hover,
+    &:focus {
+        color: var(--white-color);
+        background-color: var(--accent-color);
+    }
+}

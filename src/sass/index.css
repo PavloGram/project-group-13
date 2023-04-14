@@ -1,0 +1,22 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+
+@im;/*# sourceMappingURL=index.css.map */
