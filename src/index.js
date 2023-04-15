@@ -5,6 +5,7 @@ const BASE_URL_QUERY = 'https://api.themoviedb.org/3/search/movie';
 const API_KEY = '1962278b5026dd7c7bb0a91cd47f798b';
 
 const inputEl = document.querySelector('.input');
+const spinnerEl = document.querySelector('.preloader__image')
 
 inputEl.addEventListener('input', inputQuery);
 
@@ -26,4 +27,11 @@ function inputQuery(e) {
     });
 }
 
+// <-------------- керування спінером ------------>
+function removeSpinner(){
+  spinnerEl.classList.remove('is-hidden')
+}
+function addSpinner(){
+  spinnerEl.classList.remove('is-hidden')
+}
 

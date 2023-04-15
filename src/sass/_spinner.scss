@@ -1,5 +1,10 @@
+// .spinner-box{
+//   position: absolute;
+// }
 .preloader {
-  position: fixed;
+  display: block; 
+  margin: auto;
+  position: relative;
   left: 0;
   top: 0;
   right: 0;
@@ -14,7 +19,7 @@
   // color: #eee;
 }
 .preloader__image {
-  position: relative;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 70px;
@@ -36,4 +41,10 @@
 }
 .loaded .preloader {
   display: none;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
