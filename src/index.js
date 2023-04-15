@@ -17,6 +17,6 @@ function popularFilms() {
       // forMarcup це масив об’єктів популярних фільмів
     })
     .catch(er => {
-      cvonsole.log(er);
+      console.log(er);
     });
 }
