@@ -1,0 +1,2 @@
+function e(e){return fetch(e).then((e=>{if(!e.ok)throw new Error(e.status);return e.json()}))}const t=document.querySelector(".input");document.querySelector(".preloader__image");t.addEventListener("input",(function(t){const o=t.target.value.trim(),r=new URLSearchParams({api_key:"1962278b5026dd7c7bb0a91cd47f798b",query:o});e(`https://api.themoviedb.org/3/search/movie?${r}`).then((e=>{console.log(e)})).catch((e=>{console.log(e)}))}));
+//# sourceMappingURL=myLibary.f26f9496.js.map

@@ -1,0 +1,2 @@
+!function(){function e(e){return fetch(e).then((function(e){if(!e.ok)throw new Error(e.status);return e.json()}))}var t=document.querySelector(".input");document.querySelector(".preloader__image");t.addEventListener("input",(function(t){var n=t.target.value.trim(),o=new URLSearchParams({api_key:"1962278b5026dd7c7bb0a91cd47f798b",query:n});e("".concat("https://api.themoviedb.org/3/search/movie","?").concat(o)).then((function(e){console.log(e)})).catch((function(e){console.log(e)}))}))}();
+//# sourceMappingURL=myLibary.a8d7c4c0.js.map
