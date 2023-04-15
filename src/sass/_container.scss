@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   margin-right: auto;
   margin-left: auto;
+  min-height: 65vh;
 
   @media screen and (max-width: 767px) {
     max-width: 320px;
