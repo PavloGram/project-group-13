@@ -27,7 +27,8 @@ function inputQuery(e) {
     });
 }
 
-// <-------------- керування спінером ------------>
+// <-------------- керування спінером ----------
+// <---------------клас is-hidden в файлі spinner.scss------------->
 function removeSpinner(){
   spinnerEl.classList.remove('is-hidden')
 }
