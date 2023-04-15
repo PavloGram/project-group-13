@@ -10,7 +10,7 @@
     @media screen and (min-width: $mobile-width) {
         margin-top: 20px;
         padding: 16px;
-        width: 460px;
+        width: 320px;
     }
 
     @media screen and (min-width: $table-width) {
@@ -127,7 +127,8 @@
 }
 
 .logo {
-    margin-top: 60vh;
+    margin-top: 62vh;
+
 
     @media screen and (min-width: $table-width) {
         margin-top: 105px;
@@ -139,7 +140,13 @@
 }
 
 .logo__icon {
-    width: 44px;
+    width: 32px;
+    @media screen and (min-width: $table-width) {
+            width: 40px;
+        }
+                @media screen and (min-width: $desktop-width) {
+                    width: 59px;
+                }
 }
 
 .logo__link {
@@ -148,11 +155,15 @@
     justify-content: center;
     gap: 8px;
     font-weight: 500;
-    font-size: 44px;
+    font-size: 32px;
     color: #ffffff;
 
     @media screen and (min-width: $table-width) {
         justify-content: start;
         gap: 16px;
+        font-size: 40px;
     }
+         @media screen and (min-width: $desktop-width) {
+            font-size: 64px;
+         }
 }
