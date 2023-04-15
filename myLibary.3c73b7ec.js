@@ -1,2 +1,0 @@
-!function(){document.querySelector(".input");var n,t=new URLSearchParams({api_key:"1962278b5026dd7c7bb0a91cd47f798b"});(n="".concat("https://api.themoviedb.org/3/trending/all/day","?").concat(t),fetch(n).then((function(n){if(!n.ok)throw new Error(n.status);return n.json()}))).then((function(n){console.log(n)})).catch((function(n){cvonsole.log(n)}))}();
-//# sourceMappingURL=myLibary.3c73b7ec.js.map
