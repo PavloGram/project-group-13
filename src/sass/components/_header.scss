@@ -1,16 +1,18 @@
 .header__container {
-    height: 100vh;
-
-    padding: 20px;
+    height: 460px;
+padding-left: 20px;
+padding-right: 20px;
+    // padding: 20px;
     background-image: url(../images/header/header-bg-mob.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     @media screen and (min-width: $mobile-width) {
-        margin-top: 20px;
-        padding: 16px;
+        // margin-top: 20px;
+        // padding: 16px;
         width: 320px;
+        height: 460px;
     }
 
     @media screen and (min-width: $table-width) {
@@ -93,21 +95,24 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    margin-top: 14px;
 
     @media screen and (min-width: $table-width) {
         gap: 8px;
         order: 2;
+        margin-top: 16px;
     }
 }
 
 .menu-list__link {
-    padding: 14px 24px;
+    padding: 10px 22px;
     background: #ffffff;
     border-radius: 100px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
+    line-height: 1.17;
     text-transform: uppercase;
     color: #000000;
     text-decoration: none;
@@ -124,6 +129,7 @@
 .menu-list__link--active {
     background-color: #000;
     color: #fff;
+    padding: 10px 26px;
 }
 
 .logo {
@@ -156,14 +162,17 @@
     gap: 8px;
     font-weight: 500;
     font-size: 32px;
+    line-height: 1.19;
     color: #ffffff;
 
     @media screen and (min-width: $table-width) {
         justify-content: start;
         gap: 16px;
         font-size: 40px;
+        line-height: 1.17;
     }
          @media screen and (min-width: $desktop-width) {
             font-size: 64px;
+            line-height: 1.17;
          }
 }
