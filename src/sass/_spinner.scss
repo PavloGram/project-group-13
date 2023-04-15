@@ -1,17 +1,14 @@
-
 .preloader {
-  position: absolute;
- 
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  // overflow: hidden;
-  // background-color: #21D4FD;
-  // background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
-  // z-index: 1001;
-  // color: #eee;
-  color: red;
+  overflow: hidden;
+  background-color: #21D4FD;
+  background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+  z-index: 1001;
+  color: #eee;
 }
 .preloader__image {
   position: relative;
