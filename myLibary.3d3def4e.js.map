@@ -1,1 +1,0 @@
-{"mappings":"0gBAAAA,EAAA","sources":["src/index.js"],"sourcesContent":["import './spinner.js'\nimport './fetchFilms.js'\n// import './pagination.js'\n"],"names":["parcelRequire"],"version":3,"file":"myLibary.3d3def4e.js.map"}
