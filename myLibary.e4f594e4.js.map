@@ -1,0 +1,1 @@
+{"mappings":"shBAAAA,EAAA,Q","sources":["src/index.js"],"sourcesContent":["import './spinner.js'\nimport './fetchFilms.js'\n// import './pagination.js'\n"],"names":["parcelRequire"],"version":3,"file":"myLibary.e4f594e4.js.map"}
