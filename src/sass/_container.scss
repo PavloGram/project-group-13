@@ -1,6 +1,8 @@
 .container-cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   margin-right: auto;
   margin-left: auto;
   min-height: 65vh;
@@ -16,15 +18,30 @@
   @media screen and (min-width: 768px) {
    
     flex-direction: row;
-    justify-content: center;
+
     margin-top: 32px;
     margin-bottom: 60px;
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     gap: 32px;
+    max-width: 768px;
   }
   @media screen and (min-width: 1280px) {
 
     gap: 16px;
+  }
+}
+.start {
+  @media screen and (max-width: 767px) {
+    width: 150px;
+    height: 150px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 200px;
+    height: 200px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 300px;
+    height: 300px;
   }
 }
