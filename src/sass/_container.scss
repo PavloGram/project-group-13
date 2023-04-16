@@ -1,0 +1,30 @@
+.container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 65vh;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+   
+  }
+  @media screen and (min-width: 768px) {
+   
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 32px;
+    margin-bottom: 60px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    gap: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+
+    gap: 16px;
+  }
+}
