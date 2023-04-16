@@ -9,7 +9,7 @@ const spinnerEl = document.querySelector('.preloader__image');
 inputEl.addEventListener('input', inputQuery);
 
 let value = '';
-// в тотал ресалт буде записана загальна кількість об’єктів які прийшли з бекенде щоб розрахувати кількість сторінок
+// в totalResults буде записана загальна кількість об’єктів які прийшли з бекенду щоб розрахувати кількість сторінок
 let totalResults = 0;
 
 function inputQuery(e) {
@@ -41,8 +41,8 @@ function moreFilms(count){
   const url = `${BASE_URL_QUERY}?${searchParamsToQuery}`;
   fetchFilms(url)
     .then(forMarcup => {
-      totalResults = forMarcup.total_results;
-      return console.log(totalResults);
+    
+      // return console.log(totalResults);
     })
     .catch(er => {
       console.log(er);
