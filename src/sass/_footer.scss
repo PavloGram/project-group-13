@@ -1,0 +1,48 @@
+.footer-container {
+    background: #F7F7F7;
+    
+}
+br {
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+.footer-text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+   
+    align-items: center;
+    text-align: center;
+    
+    color: #545454;
+   
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 19px;
+
+        padding-top: 30px;
+        padding-bottom: 30px;
+        
+        
+    }
+}
+.footer__text-top {
+    display: inline-block;
+    margin-bottom: 12px;
+    @media screen and (min-width: 768px) {
+        margin: 0;
+    }
+}
+.icon-heart {
+    fill: #B92F2C;
+    margin: 0 10px;
+}
+.team-modal__link-open {
+    text-decoration: underline;
+    color: inherit;
+}
