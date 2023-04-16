@@ -32,6 +32,25 @@
 
 <!-- spinner 2, стилі знаходяться в файлі base-setting -->
          <div class="lds-dual-ring"></div>
+         <div class="pagination">
+          <button type="button" class="pagination-btn active-pagination">
+            1
+          </button>
+          <!-- .previous-btn лишній -->
+          <button type="button" class="previous-btn pagination-btn">2</button> 
+          <button type="button" class="pagination-btn">3</button>
+          <button type="button" class="pagination-btn">4</button>
+          <button type="button" class="pagination-btn">5</button>
+          <button type="button" class="pagination-btn next-dots">...</button>
+          <button type="button" class="end-btn pagination-btn">499</button>
+          <button type="button" class="next-btn pagination-btn">
+            <ion-icon
+              class="icon"
+              name="code-working-outline"
+              width="16"
+            ></ion-icon>
+          </button>
+        </div>
     </main>
     
     <footer>
@@ -41,5 +60,8 @@
 
     <script type="module" src="./index.js"></script>
     <script type="module" src="./modal-team.js"></script>
+    <script type="module" src="./pagination.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- <script type="module" src="./pagination.js"></script> -->
   </body>
 </html>
