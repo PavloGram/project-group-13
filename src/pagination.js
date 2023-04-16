@@ -7,8 +7,10 @@ const inputEl = document.querySelector('.search__input');
 const spinnerEl = document.querySelector('.preloader__image');
 
 inputEl.addEventListener('input', inputQuery);
-let pageCounter = 1;
+
 let value = '';
+// в тотал ресалт буде записана загальна кількість об’єктів які прийшли з бекенде щоб розрахувати кількість сторінок
+let totalResults = 0;
 
 function inputQuery(e) {
   value = e.target.value.trim();
@@ -16,12 +18,31 @@ function inputQuery(e) {
   const searchParamsToQuery = new URLSearchParams({
     api_key: '1962278b5026dd7c7bb0a91cd47f798b',
     query: value,
-    page: pageCounter,
+    page: 1,
   });
   const url = `${BASE_URL_QUERY}?${searchParamsToQuery}`;
   fetchFilms(url)
     .then(forMarcup => {
-      return console.log(forMarcup);
+      totalResults = forMarcup.total_results;
+      // return console.log(totalResults);
+    })
+    .catch(er => {
+      console.log(er);
+    });
+}
+// <----------функція яка викликається при натисканні на кнопки пагінації 
+// в count має передаватися номер сторінки яка має бути завантажена і намальована------->
+function moreFilms(count){
+  const searchParamsToQuery = new URLSearchParams({
+    api_key: '1962278b5026dd7c7bb0a91cd47f798b',
+    query: value,
+    page: count,
+  });
+  const url = `${BASE_URL_QUERY}?${searchParamsToQuery}`;
+  fetchFilms(url)
+    .then(forMarcup => {
+      totalResults = forMarcup.total_results;
+      return console.log(totalResults);
     })
     .catch(er => {
       console.log(er);
@@ -36,6 +57,9 @@ function fetchFilms(url) {
     return response.json();
   });
 }
+
+
+// <----------------->
 
 const paginationContainer = document.querySelector('.pagination');
 const paginationButtons =
