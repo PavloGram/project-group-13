@@ -15,8 +15,31 @@
   <body>
 
     <header>
-     
-      <include src="./partials/header.html"></include>
+      <div class="header__container container">
+        <nav class="navi">
+            <form class="search" name="search">
+                <input class="search__input" type="text" name="search" placeholder="Movie search" />
+                <button class="search__btn" type="submit">
+                    <img class="search__icon" src="./images/header/search.svg" alt="search" />
+                </button>
+            </form>
+            <ul class="menu-list list">
+                <li class="menu-list__item">
+                    <a class="menu-list__link menu-list__link--active" href="#">Home</a>
+                </li>
+                <li class="menu-list__item">
+                    <a class="menu-list__link" href="./myLibary.html">My library</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <a class="logo__link link" href="#">
+                <img class="logo__icon" src="./images/header/logoo.svg" alt="logoComp" />
+                <div class="logo__text">Filmoteka</div>
+            </a>
+        </div>
+    </div>
+      <!-- <include src="./partials/header.html"></include> -->
       
     </header>
     <main>
