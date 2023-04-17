@@ -1,10 +1,13 @@
 // import { fetchFilms } from './fetchFilms.js';
+import inputError from './input-error';
+
 const BASE_URL_TRENDS = 'https://api.themoviedb.org/3/trending/all/day';
 const BASE_URL_QUERY = 'https://api.themoviedb.org/3/search/movie';
 const API_KEY = '1962278b5026dd7c7bb0a91cd47f798b';
 
 const inputEl = document.querySelector('.search__input');
 const spinnerEl = document.querySelector('.preloader__image');
+const inputErrEl = document.querySelector('.error-input');
 
 inputEl.addEventListener('input', inputQuery);
 
@@ -24,6 +27,7 @@ function inputQuery(e) {
   fetchFilms(url)
     .then(forMarcup => {
       totalResults = forMarcup.total_results;
+
       // return console.log(totalResults);
     })
     .catch(er => {
@@ -41,6 +45,7 @@ function moreFilms(count) {
   const url = `${BASE_URL_QUERY}?${searchParamsToQuery}`;
   fetchFilms(url)
     .then(forMarcup => {
+      inputError(forMarcup);
       // return console.log(totalResults);
     })
     .catch(er => {
