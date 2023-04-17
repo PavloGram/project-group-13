@@ -66,6 +66,7 @@ function handleGallery(evt) {
 }
 
 function onOpenModal(movieId) {
+  backdrop.classList.remove('backdrop-hidden');
   modalMovie.setAttribute('data-id', `${movieId}`);
 
   watched = load('watched') ? load('watched') : [];
@@ -136,6 +137,7 @@ function onCloseModal() {
   addRemoveWatchedBtn.removeEventListener('click', handleWatchedStorage);
   addRemoveQueueBtn.removeEventListener('click', handleQueueStorage);
   modalMovie.removeAttribute('data-id');
+  backdrop.classList.add('backdrop-hidden');
 }
 
 backdrop.addEventListener('click', onBackdropClick);
