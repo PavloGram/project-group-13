@@ -1,5 +1,9 @@
 .footer-container {
-    background: #F7F7F7; 
+    background: #F7F7F7;
+    position: absolute;
+    bottom: auto;
+    width: 100%;
+    margin-top: 40px;
 }
 br {
     @media screen and (min-width: 768px) {
