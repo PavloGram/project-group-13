@@ -13,7 +13,10 @@ const watchedButton = document.querySelector('.js_watched');
     function handleGetWatchedFilms() {
         filmList.innerHTML = "";
         const savedData = localStorage.getItem(STORAGE_KEY_WATCH);
-
+        if (queueButton.classList.contains('is-active')) {
+        queueButton.classList.remove('is-active');
+        }
+        watchedButton.classList.add('is-active');
         if (savedData) {
         try {
             const filmData = JSON.parse(savedData);
@@ -30,6 +33,11 @@ function handleGetQueueFilms() {
         filmList.innerHTML = "";
         const savedData = localStorage.getItem(STORAGE_KEY_QUEUE);
 
+    if (watchedButton.classList.contains('is-active')) {
+        watchedButton.classList.remove('is-active');
+    }
+    queueButton.classList.add('is-active');
+    
         if (savedData) {
         try {
             const filmData = JSON.parse(savedData);
