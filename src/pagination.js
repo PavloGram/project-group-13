@@ -60,23 +60,76 @@ function fetchFilms(url) {
 // <----------------->
 
 const paginationContainer = document.querySelector('.pagination');
-const previousButton = document.createElement('button');
-const nextButton = document.createElement('button');
-
-previousButton.classList.add('pagination-btn', 'previous-btn');
-previousButton.innerHTML =
-  '<ion-icon class="icon" name="arrow-back-outline"></ion-icon>';
-
-nextButton.classList.add('pagination-btn', 'next-btn');
-nextButton.innerHTML =
-  '<ion-icon class="icon" name="arrow-forward-outline"></ion-icon>';
+const paginationButtons =
+  paginationContainer.querySelectorAll('.pagination-btn');
+const nextButton = paginationContainer.querySelector('.next-btn');
+const endButton = paginationContainer.querySelector('.end-btn');
+const nextDotsButton = paginationContainer.querySelector('.next-dots');
 
 let currentPage = 1;
-let totalPages = 0;
+const totalPages = paginationButtons.length - 2;
+
+const paginationMarkup = () => {
+  if (state.totalPages <= 1) return;
+  const { pages, hasPrevGroup, hasNextGroup } = paginate(
+    state.totalPages,
+    state.currentPage
+  );
+  const firstPage = `<button type="button" class="start-btn pagination-btn">1</button>`;
+  const lastPage = `<button type="button" class="end-btn pagination-btn">${state.totalPages}</button>`;
+  const prev = `<button type="button" class="pagination-btn"></button>`;
+  const next = `<button type="button" class="next-btn pagination-btn"></button>`;
+  const dotsBtnPrev = `<button class="pagination-btn">...</button>`;
+  const dotsBtnNext = `<button class="pagination-btn next-dots">...</button>`;
+  const btnPages = pages
+    .map(num => {
+      const isActive = num === state.currentPage ? 'active-pagination' : '';
+      return `<button type="button" class="pagination-btn ${isActive}
+        ">${num}</button>`;
+    })
+    .join('');
+  const leftGroup = hasPrevGroup ? prev + firstPage + dotsBtnPrev : '';
+  const rightGroup = hasNextGroup ? dotsBtnNext + lastPage + next : '';
+  return leftGroup + btnPages + rightGroup;
+};
+
+const updateCurrentPage = newPage => {
+  state.currentPage = newPage;
+  clearPagination();
+
+  renderPaginationMarkup();
+};
+
+const goToNextPage = () => {
+  updateCurrentPage(state.currentPage + 1);
+};
+const goToPrevPage = () => {
+  updateCurrentPage(state.currentPage - 1);
+};
+const goToNextGroupBtn = () => {
+  const { pages } = paginate(state.totalPages, state.currentPage);
+  const lastPageOfCurrentGroup = pages[pages.length - 1];
+  const newPage = Math.min(lastPageOfCurrentGroup + 1, state.totalPages);
+  state.currentPage = pages[pages.length - 1] + 1;
+  updateCurrentPage(newPage);
+};
+const goToPrevGroupBtn = () => {
+  const { pages } = paginate(state.totalPages, state.currentPage);
+  const firstPageOfCurrentGroup = pages[0];
+  const newPage = Math.max(firstPageOfCurrentGroup - 1, 1);
+  updateCurrentPage(newPage);
+};
+const changePageByClick = evt => {
+  const activeBtn = document.querySelector('.active-pagination');
+  const selectedPage = Number(evt.target.textContent) || state.currentPage;
+  if (selectedPage === state.currentPage) return;
+
+  updateCurrentPage(selectedPage);
+  activeBtn.classList.remove('active-pagination');
+  evt.target.classList.add('active-pagination');
+};
 
 function displayCurrentPage() {
-  const paginationButtons =
-    paginationContainer.querySelectorAll('.pagination-btn');
   paginationButtons.forEach(button => {
     button.classList.remove('active-pagination');
     if (button.innerText == currentPage) {
@@ -85,42 +138,13 @@ function displayCurrentPage() {
   });
 }
 
-function createPaginationButtons(totalPages) {
-  paginationContainer.innerHTML = '';
-  paginationContainer.appendChild(previousButton);
-  for (let i = 1; i <= totalPages; i++) {
-    const button = document.createElement('button');
-    button.classList.add('pagination-btn');
-    button.innerText = i;
-    paginationContainer.appendChild(button);
-  }
-  paginationContainer.appendChild(nextButton);
-}
-
-async function fetchData() {
-  const response = await fetch('https://example.com/data');
-  const data = await response.json();
-  return data;
-}
-
-fetchData()
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error(error);
+paginationButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    if (button.innerText != '...' && currentPage != button.innerText) {
+      currentPage = parseInt(button.innerText);
+      displayCurrentPage();
+    }
   });
-
-paginationContainer.addEventListener('click', event => {
-  const target = event.target;
-  if (
-    target.classList.contains('pagination-btn') &&
-    target.innerText !== '...' &&
-    currentPage !== parseInt(target.innerText)
-  ) {
-    currentPage = parseInt(target.innerText);
-    displayCurrentPage();
-  }
 });
 
 previousButton.addEventListener('click', () => {
@@ -137,7 +161,36 @@ nextButton.addEventListener('click', () => {
   }
 });
 
-fetchPaginationData();
+endButton.addEventListener('click', () => {
+  if (currentPage != totalPages) {
+    currentPage = totalPages;
+    displayCurrentPage();
+  }
+});
+
+nextDotsButton.addEventListener('click', () => {
+  if (currentPage < totalPages - 2) {
+    currentPage += 3;
+    displayCurrentPage();
+  } else {
+    currentPage = totalPages;
+    displayCurrentPage();
+  }
+});
+
+const onBtnPageClick = async evt => {
+  if (evt.target.nodeName !== 'BUTTON') return;
+  if (Number(evt.target.textContent) === state.currentPage) return;
+  if (evt.target.classList.contains('next-btn')) goToNextPage();
+  if (evt.target.classList.contains('next-dots')) goToNextGroupBtn();
+  if (evt.target.classList.contains('prev-dots')) goToPrevGroupBtn();
+  changePageByClick(evt);
+  window.scrollTo({
+    top: 0,
+  });
+  moviesEl.innerHTML = '';
+  whatPaginated(state.whatPaginated);
+};
 
 // const paginationContainer = document.querySelector('.pagination');
 // const paginationButtons =
