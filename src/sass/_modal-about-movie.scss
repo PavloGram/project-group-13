@@ -7,10 +7,6 @@ $tablet: 768px;
 $desktop: 1280px;
 
 body.show-modal .backdrop {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
@@ -26,27 +22,20 @@ body.show-modal {
 }
 
 .backdrop {
-  // position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  // width: 100vw;
-  // height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 100;
 
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-      clip: rect(0 0 0 0);
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      position: absolute;
-
-
   transition: opacity $time-transition, visibility $time-transition;
 }
 
