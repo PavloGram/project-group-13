@@ -1,4 +1,4 @@
-import createGalleryCard from './js/render-markup.js';
+import renderMarkup from './js/render-markup.js';
 
 const STORAGE_KEY_WATCH = 'watched';
 const STORAGE_KEY_QUEUE = 'queue';
@@ -6,8 +6,8 @@ const queueButton = document.querySelector('.js_queue');
 const filmList = document.querySelector('.container-cards'); 
 const watchedButton = document.querySelector('.js_watched');
 
-console.log(queueButton);
-console.log(watchedButton);
+// console.log(queueButton);
+// console.log(watchedButton);
 
 
     function handleGetWatchedFilms() {
@@ -18,7 +18,7 @@ console.log(watchedButton);
         try {
             const filmData = JSON.parse(savedData);
             console.log(filmData);
-            filmList.insertAdjacentHTML('afterbegin', createGalleryCard(filmData))
+            filmList.insertAdjacentHTML('afterbegin', renderMarkup(filmData))
         }
         catch (error) {
             console.error("Get state error: ", error.message);
@@ -34,7 +34,7 @@ function handleGetQueueFilms() {
         try {
             const filmData = JSON.parse(savedData);
             console.log(filmData);
-            filmList.insertAdjacentHTML('afterbegin', createGalleryCard(filmData))
+            filmList.insertAdjacentHTML('afterbegin', renderMarkup(filmData))
         }
         catch (error) {
             console.error("Get state error: ", error.message);
