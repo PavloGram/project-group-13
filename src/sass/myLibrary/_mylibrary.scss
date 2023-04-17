@@ -206,6 +206,11 @@
     }
 }
 
+.btn-active {
+    color: var(--white-color);
+    background-color: var(--accent-color);
+}
+
 .watched {
     padding: 10px 23px;
 
