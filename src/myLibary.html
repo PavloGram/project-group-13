@@ -8,6 +8,7 @@
     <title>My Libary</title>
   </head>
   <body>
+    <div class="wrep">
     <header class="">
       <div class="header__container container">
         <div class="container-wrap">
@@ -46,12 +47,12 @@
         </div>
       </div>
     </header>
-    <main>
+    <main class="main">
       
       
       <div class="container-card my-library">
         <include src="./partials/film-cards.html"></include>
-          <!-- <img src="./image/nomovies.png" alt="no movies" class="start" /> -->
+          <img src="./image/nomovies.png" alt="no movies" class="start" />
         </div>
       <!-- SPINNER -->
       <!-- <div class="spinner-box">
@@ -71,6 +72,9 @@
       </div> -->
       <!-- spinner 2, стилі знаходяться в файлі base-setting -->
       <!-- <div class="lds-dual-ring"></div>   -->
+      <div class="container-cards my-library">
+        <!-- <img src="./image/nomovies.png" alt="no movies" class="start" /> -->
+      </div>
 
       <include src="./modal-about-movie.html"></include>
     </main>
@@ -80,8 +84,10 @@
       <include src="./team.html"></include>
 
     </footer>
+  </div>
+
     <script type="module" src="./myLibary.js"></script>
-    <script type="module" src="./modal-team.js"></script>
+    <!-- <script type="module" src="./modal-team.js"></script> -->
     <script type="module" src="./modal-about-movie.js"></script>
     <!-- <script type="module" src="./index.js"></script> -->
   </body>

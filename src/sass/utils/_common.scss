@@ -1,5 +1,9 @@
 // переважаючі характеристики сторінки
+html{
+    height: 100%;
+}
 body {
+    height: 100%;
     color: $color-primary-dark;
     font-family: $font-site;
     @include font(500, 18, 22, 0.02);
