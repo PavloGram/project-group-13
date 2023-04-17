@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./sass/index.scss" />
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
     <header>
@@ -43,9 +44,10 @@
     </header>
     <main>
     
-        <div class="container-cards">
-          <!-- <img src="./image/nomovies.png" alt="no movies" class="start" /> -->
-        </div>
+    <include src="./partials/film-cards.html"></include>
+        <!-- <div class="container-cards">
+          <img src="./image/nomovies.png" alt="no movies" class="start" />
+        </div> -->
       
           <!-- SPINNER 1-->
 <!-- <div class="spinner-box"> 
@@ -60,11 +62,12 @@
 <!-- spinner 2, стилі знаходяться в файлі base-setting -->
          <!-- <div class="lds-dual-ring"></div> -->
 
-                   <div class="pagination">
+                   <!-- <div class="pagination"> -->
+                  <!-- <div class="pagination">
           <button type="button" class="pagination-btn active-pagination">
                   
           </button>
-          <!-- .previous-btn лишній -->
+          .previous-btn лишній
           <button type="button" class="previous-btn pagination-btn">2</button> 
           <button type="button" class="pagination-btn">3</button>
           <button type="button" class="pagination-btn">4</button>
@@ -79,6 +82,7 @@
             ></ion-icon>
           </button>
         </div> 
+        </div> -->
     </main>
     
     <footer>
@@ -88,10 +92,12 @@
       
    
 
-    <script type="module" src="./index.js"></script>
-    <script type="module" src="./modal-team.js"></script>
-    <script type="module" src="./pagination.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- <script type="module" src="./index.js"></script> -->
+    <!-- <script type="module" src="./modal-team.js"></script> -->
+    <!-- <script type="module" src="./pagination.js"></script> -->
+    
+    <!-- <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> -->
+    <!-- <script tupe="module" src="./js/render-markup.js"></script> -->
     <!-- <script type="module" src="./pagination.js"></script> -->
   </body>
 </html>
