@@ -27,6 +27,7 @@ function inputQuery(e) {
   fetchFilms(url)
     .then(forMarcup => {
       totalResults = forMarcup.total_results;
+      inputError(totalResults);
 
       // return console.log(totalResults);
     })
@@ -45,7 +46,6 @@ function moreFilms(count) {
   const url = `${BASE_URL_QUERY}?${searchParamsToQuery}`;
   fetchFilms(url)
     .then(forMarcup => {
-      inputError(forMarcup);
       // return console.log(totalResults);
     })
     .catch(er => {
