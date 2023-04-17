@@ -10,16 +10,15 @@ function createTeamCards(items) {
         return `
     <li class="team__item">
         <h1 class="team__member-name">${name}</h1> 
+        <p class="team__text"> ${work}</p>
         <a class="team__link" href="${photo}">
             <img
                 class="team__image"
                 src="${icon}"
                 data-source="${photo}"
                 alt="${name}"
-                
             />
-        </a>
-        <p class="team__text"> ${work}</p>        </li>
+        </a>        </li>
     `;
     }).join("");
 };
@@ -28,13 +27,16 @@ const teamCardsMarkup = createTeamCards(teamMembers);
 teamContainer.insertAdjacentHTML('beforeend', teamCardsMarkup)
 
 
-const box = new SimpleLightbox('.team a', {
+new SimpleLightbox('.team a', {
+    captions: true,
     captionSelector: 'img',
-    captionData: 'alt',
-    captionDelay: 250,
+    captionsData: 'alt',
+    captionDelay: 100,
     captionPosition: 'bottom'
 });
 
+
+// Team-modal
 (() => {
     const refs = {
       openModalLink: document.querySelector("[data-modal-open]"),

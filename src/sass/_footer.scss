@@ -1,6 +1,9 @@
 .footer-container {
     background: #F7F7F7;
-    
+    position: absolute;
+    bottom: auto;
+    width: 100%;
+    margin-top: 40px;
 }
 br {
     @media screen and (min-width: 768px) {
@@ -26,9 +29,7 @@ br {
         line-height: 19px;
 
         padding-top: 30px;
-        padding-bottom: 30px;
-        
-        
+        padding-bottom: 30px;        
     }
 }
 .footer__text-top {
