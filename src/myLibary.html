@@ -14,10 +14,14 @@
           <nav class="header-nav">
             <ul class="library-nav-list">
               <li class="library-nav-list__item">
-                <a class="library-nav-list__link home" href="./index.html">Home</a>
+                <a class="library-nav-list__link home" href="./index.html"
+                  >Home</a
+                >
               </li>
               <li class="library-nav-list__item">
-                <a class="library-nav-list__link current library" href="./myLibary.html"
+                <a
+                  class="library-nav-list__link current library"
+                  href="./myLibary.html"
                   >My library</a
                 >
               </li>
@@ -31,7 +35,9 @@
           >
           <ul class="library-btn-list">
             <li class="btn-list__item">
-              <button class="btn watched btn-active js_watched" type="button">Watched</button>
+              <button class="btn watched btn-active js_watched" type="button">
+                Watched
+              </button>
             </li>
             <li class="btn-list__item">
               <button class="btn queue js_queue" type="button">queue</button>
@@ -41,8 +47,6 @@
       </div>
     </header>
     <main>
-      
-      
       <!-- <div class="container-cards"></div> -->
       <!-- SPINNER -->
       <!-- <div class="spinner-box">
@@ -62,15 +66,19 @@
       </div> -->
       <!-- spinner 2, стилі знаходяться в файлі base-setting -->
       <!-- <div class="lds-dual-ring"></div>   -->
-      <div class="container-cards my-library">
-        <img src="./image/nomovies.png" alt="no movies" class="start" />
+      <div class="container-card my-library">
+        <div class="galleryFilms-js gallery-markup">
+          <img src="./image/nomovies.png" alt="no movies" class="start" />
+        </div>
       </div>
+
+      <include src="./modal-about-movie.html"></include>
     </main>
 
     <footer>
       <include src="./footer.html"></include>
       <include src="./team.html"></include>
-      <include src="./modal-about-movie.html"></include>
+
     </footer>
     <script type="module" src="./myLibary.js"></script>
     <script type="module" src="./modal-team.js"></script>
