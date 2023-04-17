@@ -59,6 +59,86 @@ function fetchFilms(url) {
 
 // <----------------->
 
+const paginationContainer = document.querySelector('.pagination');
+const previousButton = document.createElement('button');
+const nextButton = document.createElement('button');
+
+previousButton.classList.add('pagination-btn', 'previous-btn');
+previousButton.innerHTML =
+  '<ion-icon class="icon" name="arrow-back-outline"></ion-icon>';
+
+nextButton.classList.add('pagination-btn', 'next-btn');
+nextButton.innerHTML =
+  '<ion-icon class="icon" name="arrow-forward-outline"></ion-icon>';
+
+let currentPage = 1;
+let totalPages = 0;
+
+function displayCurrentPage() {
+  const paginationButtons =
+    paginationContainer.querySelectorAll('.pagination-btn');
+  paginationButtons.forEach(button => {
+    button.classList.remove('active-pagination');
+    if (button.innerText == currentPage) {
+      button.classList.add('active-pagination');
+    }
+  });
+}
+
+function createPaginationButtons(totalPages) {
+  paginationContainer.innerHTML = '';
+  paginationContainer.appendChild(previousButton);
+  for (let i = 1; i <= totalPages; i++) {
+    const button = document.createElement('button');
+    button.classList.add('pagination-btn');
+    button.innerText = i;
+    paginationContainer.appendChild(button);
+  }
+  paginationContainer.appendChild(nextButton);
+}
+
+async function fetchData() {
+  const response = await fetch('https://example.com/data');
+  const data = await response.json();
+  return data;
+}
+
+fetchData()
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+paginationContainer.addEventListener('click', event => {
+  const target = event.target;
+  if (
+    target.classList.contains('pagination-btn') &&
+    target.innerText !== '...' &&
+    currentPage !== parseInt(target.innerText)
+  ) {
+    currentPage = parseInt(target.innerText);
+    displayCurrentPage();
+  }
+});
+
+previousButton.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    displayCurrentPage();
+  }
+});
+
+nextButton.addEventListener('click', () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    displayCurrentPage();
+  }
+});
+
+fetchPaginationData();
+
 // const paginationContainer = document.querySelector('.pagination');
 // const paginationButtons =
 //   paginationContainer.querySelectorAll('.pagination-btn');
@@ -190,83 +270,3 @@ function fetchFilms(url) {
 // });
 
 // fetchPaginationData();
-
-const paginationContainer = document.querySelector('.pagination');
-const previousButton = document.createElement('button');
-const nextButton = document.createElement('button');
-
-previousButton.classList.add('pagination-btn', 'previous-btn');
-previousButton.innerHTML =
-  '<ion-icon class="icon" name="arrow-back-outline"></ion-icon>';
-
-nextButton.classList.add('pagination-btn', 'next-btn');
-nextButton.innerHTML =
-  '<ion-icon class="icon" name="arrow-forward-outline"></ion-icon>';
-
-let currentPage = 1;
-let totalPages = 0;
-
-function displayCurrentPage() {
-  const paginationButtons =
-    paginationContainer.querySelectorAll('.pagination-btn');
-  paginationButtons.forEach(button => {
-    button.classList.remove('active-pagination');
-    if (button.innerText == currentPage) {
-      button.classList.add('active-pagination');
-    }
-  });
-}
-
-function createPaginationButtons(totalPages) {
-  paginationContainer.innerHTML = '';
-  paginationContainer.appendChild(previousButton);
-  for (let i = 1; i <= totalPages; i++) {
-    const button = document.createElement('button');
-    button.classList.add('pagination-btn');
-    button.innerText = i;
-    paginationContainer.appendChild(button);
-  }
-  paginationContainer.appendChild(nextButton);
-}
-
-async function fetchData() {
-  const response = await fetch('https://example.com/data');
-  const data = await response.json();
-  return data;
-}
-
-fetchData()
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
-
-paginationContainer.addEventListener('click', event => {
-  const target = event.target;
-  if (
-    target.classList.contains('pagination-btn') &&
-    target.innerText !== '...' &&
-    currentPage !== parseInt(target.innerText)
-  ) {
-    currentPage = parseInt(target.innerText);
-    displayCurrentPage();
-  }
-});
-
-previousButton.addEventListener('click', () => {
-  if (currentPage > 1) {
-    currentPage--;
-    displayCurrentPage();
-  }
-});
-
-nextButton.addEventListener('click', () => {
-  if (currentPage < totalPages) {
-    currentPage++;
-    displayCurrentPage();
-  }
-});
-
-fetchPaginationData();
