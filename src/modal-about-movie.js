@@ -58,9 +58,9 @@ function handleGallery(evt) {
     return;
   }
 
-  let filmId = Number(evt.target.closest('div > div').getAttribute('data-id'));
-
-  movieCard = evt.target.closest('div > div');
+  let filmId = Number(evt.target.closest('.film-card').getAttribute('data-id'));
+  
+  movieCard = evt.target.closest('.film-card');
 
   onOpenModal(filmId);
 }
