@@ -75,7 +75,6 @@
 
 .library-nav-list__link {
     display: inline-block;
-    padding: 10px 26px;
     background-color: var(--white-color);
     border-radius: 100px;
 
@@ -85,6 +84,40 @@
     line-height: 1.17;
     text-transform: uppercase;
     color: var(--black-color);
+    transition: all 250ms ease;
+}
+
+.library-nav-list__link:hover,
+.library-nav-list__link:focus {
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+.home {
+    padding: 10px 26px;
+
+    @media screen and(min-width:768px) {
+           padding: 12px 24px;
+        }
+
+    @media screen and(min-width:1280px) {
+        padding: 14px 32px;
+
+    }
+}
+
+.library{
+    padding: 10px 22px;
+    
+        @media screen and(min-width:768px) {
+            padding: 12px 20px;
+        }
+    
+        @media screen and(min-width:1280px) {
+            padding: 14px 24px;
+    
+        }
+
 }
 
 .current {
@@ -153,7 +186,7 @@
 
 .btn {
     display: block;
-    padding: 10px 24px;
+    
     background-color: var(--white-color);
     border: none;
     border-radius: 100px;
@@ -171,4 +204,30 @@
         color: var(--white-color);
         background-color: var(--accent-color);
     }
+}
+
+.watched {
+    padding: 10px 23px;
+
+    @media screen and(min-width:768px) {
+            padding: 12px 23px;
+        }
+    
+        @media screen and(min-width:1280px) {
+            padding: 14px 32px;
+    
+        }
+}
+
+.queue {
+    padding: 10px 24px;
+    
+        @media screen and(min-width:768px) {
+            padding: 12px 24px;
+        }
+    
+        @media screen and(min-width:1280px) {
+            padding: 14px 24px;
+    
+        }
 }
