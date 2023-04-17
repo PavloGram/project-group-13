@@ -1,13 +1,14 @@
 .header__container {
     height: 460px;
-padding-left: 20px;
-padding-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     // padding: 20px;
     background-image: url(../images/header/header-bg-mob.jpg);
     background-position: center;
     background-repeat: no-repeat;
     // background-size: cover;
     background-size: auto;
+    border-radius: 10px;
 
     @media screen and (min-width: $mobile-width) {
         // margin-top: 20px;

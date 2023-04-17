@@ -2,6 +2,8 @@ import axios from 'axios';
 // import { createCardsGallery } from './createCardGallery'; поміняти
 
 // const galleryEl = document.querySelector('.gallery'); замінити
+import { renderMarkup } from './js/render-markup';
+
 
  class APIpopular {
   #BASE_URL = 'https://api.themoviedb.org/3/';
@@ -20,6 +22,10 @@ import axios from 'axios';
   }
 }
 
+
+
+
+
 const ApipopularMovies = new APIpopular();
 
 const handlerLoadWindow = () =>{
@@ -27,8 +33,8 @@ const handlerLoadWindow = () =>{
   ApipopularMovies
   .fetchMovies()
   .then(({data})=>{
-console.log(data)
-
+// console.log(data)
+renderMarkup(data);
 // поміняти 
 // galleryEl.innerHTML = createCardsGallery(data.results);
   }).catch(err => {
