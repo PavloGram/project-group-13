@@ -1,2 +1,2 @@
 import './spinner'
-import './modal-team.js'
+// import './modal-team.js'
