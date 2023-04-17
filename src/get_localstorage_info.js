@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 import renderMarkup from './js/render-markup.js';
+=======
+import createGalleryCard from './js/gallery_list.hbs';
+>>>>>>> Stashed changes
 
 const STORAGE_KEY_WATCH = 'watched';
 const STORAGE_KEY_QUEUE = 'queue';
