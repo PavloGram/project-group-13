@@ -3,7 +3,7 @@
 const STORAGE_KEY_WATCH = 'watched';
 const STORAGE_KEY_QUEUE = 'queu';
 const queueButton = document.querySelector('.js_queue');
-const filmList = document.querySelector('.gallery'); //необхідно проставити відповідні класи в бібліотеці
+const filmList = document.querySelector('.container-cards'); //необхідно проставити відповідні класи в бібліотеці
 const watchedButton = document.querySelector('.js_watched');
 
 console.log(queueButton);
