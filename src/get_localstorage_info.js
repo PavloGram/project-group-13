@@ -1,5 +1,4 @@
-import axios from 'axios';
-import createGalleryCard from './gallery_list.hbs';
+// import createGalleryCard from './gallery_list.hbs';
 
 const STORAGE_KEY_WATCH = 'watched';
 const STORAGE_KEY_QUEUE = 'queu';
