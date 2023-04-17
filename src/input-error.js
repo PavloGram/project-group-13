@@ -1,6 +1,8 @@
-export default function inputError(array) {
-  if (array.length > 0 && !inputErrEl.contains('is-hidden')) {
-    return inputErrEl.classList.add('is-hidden');
+export default function inputError(result) {
+  const inputErrEl = document.querySelector('.error-input ');
+
+  if (result === 0) {
+    return inputErrEl.classList.remove('is-hidden');
   }
-  return inputErrEl.classList.remove('is-hidden');
+  return inputErrEl.classList.add('is-hidden');
 }

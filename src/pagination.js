@@ -7,7 +7,7 @@ const API_KEY = '1962278b5026dd7c7bb0a91cd47f798b';
 
 const inputEl = document.querySelector('.search__input');
 const spinnerEl = document.querySelector('.preloader__image');
-const inputErrEl = document.querySelector('.error-input');
+const inputErrEl = document.querySelector('.error-input ');
 
 inputEl.addEventListener('input', inputQuery);
 
@@ -17,6 +17,10 @@ let totalResults = 0;
 
 function inputQuery(e) {
   value = e.target.value.trim();
+
+  if (value === '') {
+    return inputErrEl.classList.add('is-hidden');
+  }
 
   const searchParamsToQuery = new URLSearchParams({
     api_key: '1962278b5026dd7c7bb0a91cd47f798b',
