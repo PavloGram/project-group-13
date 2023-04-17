@@ -24,12 +24,12 @@ const filmTextAboutEl = document.querySelector('.modal-about-film-infotext');
 const addRemoveWatchedBtn = document.querySelector('.add-watched-btn');
 const addRemoveQueueBtn = document.querySelector('.add-queue-btn');
 
-const galleryContainer = document.querySelector('.container-cards');
+const galleryContainer = document.querySelector('.container-card');
 const galleryOnMyLibraryEl = document.querySelector('.my-library');
 
 let watched = [];
 let queue = [];
-let movieCardEl = '';
+let movieCard = '';
 
 const save = (key, value) => {
   try {
@@ -56,22 +56,9 @@ function handleGallery(evt) {
     return;
   }
 
-  //--------------------------------------------------------------------
-  //----------з галереї треба витягти id-фільму, на який клацнули ------
-  let filmId = Number(
-      evt.target
-        .closest('div > div')
-        .getAttribute('data-id')
-      );
-    
+  let filmId = Number(evt.target.closest('div > div').getAttribute('data-id'));
+
   movieCard = evt.target.closest('div > div');
-
-
-  //-------------------------------------------------------------------
-  //------поки тимчасово відкриває випадковий ID при кліку на Gallery
-  // let filmId = Math.floor(Math.random() * (1099999 - 1) + 1);
-  //-------------------------------------------------------------------
-
 
   onOpenModal(filmId);
 }
