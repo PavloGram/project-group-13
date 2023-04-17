@@ -4,6 +4,14 @@
     --accent-color: #B92F2C;
 }
 
+header {
+    margin: 20px;
+    
+    @media screen and(min-width:768px) {
+            margin: 32px;
+        }
+}
+
 .header {
     margin: 20px;
     
