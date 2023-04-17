@@ -24,7 +24,7 @@ const filmTextAboutEl = document.querySelector('.modal-about-film-infotext');
 const addRemoveWatchedBtn = document.querySelector('.add-watched-btn');
 const addRemoveQueueBtn = document.querySelector('.add-queue-btn');
 
-const galleryContainer = document.querySelector('.container-card');
+const galleryContainer = document.querySelector('.galleryFilms-js');
 const galleryOnMyLibraryEl = document.querySelector('.my-library');
 
 let watched = [];
@@ -86,8 +86,6 @@ function onOpenModal(movieId) {
 
   fetchMovieById(movieId)
     .then(movie => {
-      console.log(movie.id, movie.title);
-      //-----------------на проекті забрати------------
 
       if (movie.poster_path == null) {
         filmImageEl.setAttribute(
@@ -164,7 +162,7 @@ function fetchMovieById(id) {
 }
 
 function handleWatchedStorage(evt) {
-  movieId = Number(
+  let movieId = Number(
     evt.target.closest('.modal-about-film').getAttribute('data-id')
   );
 
@@ -193,7 +191,7 @@ function handleWatchedStorage(evt) {
 }
 
 function handleQueueStorage(evt) {
-  movieId = Number(
+  let movieId = Number(
     evt.target.closest('.modal-about-film').getAttribute('data-id')
   );
 
