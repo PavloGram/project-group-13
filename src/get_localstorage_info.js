@@ -1,7 +1,7 @@
 // import createGalleryCard from './gallery_list.hbs';
 
 const STORAGE_KEY_WATCH = 'watched';
-const STORAGE_KEY_QUEUE = 'queu';
+const STORAGE_KEY_QUEUE = 'queue';
 const queueButton = document.querySelector('.js_queue');
 const filmList = document.querySelector('.container-cards'); //необхідно проставити відповідні класи в бібліотеці
 const watchedButton = document.querySelector('.js_watched');
