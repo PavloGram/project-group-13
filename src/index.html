@@ -17,40 +17,55 @@
     <header>
       <div class="header__container container">
         <nav class="navi">
-            <form class="search" name="search">
-                <input class="search__input" type="text" name="search" placeholder="Movie search" />
-                <button class="search__btn" type="submit">
-                    <img class="search__icon" src="./images/header/search.svg" alt="search" />
-                </button>
-            </form>
-            <ul class="menu-list list">
-                <li class="menu-list__item">
-                    <a class="menu-list__link menu-list__link--active" href="./index.html">Home</a>
-                </li>
-                <li class="menu-list__item">
-                    <a class="menu-list__link" href="./myLibary.html">My library</a>
-                </li>
-            </ul>
+          <form class="search" name="search">
+            <input
+              class="search__input"
+              type="text"
+              name="search"
+              placeholder="Movie search"
+            />
+            <button class="search__btn" type="submit">
+              <img
+                class="search__icon"
+                src="./images/header/search.svg"
+                alt="search"
+              />
+            </button>
+          </form>
+          <ul class="menu-list list">
+            <li class="menu-list__item">
+              <a
+                class="menu-list__link menu-list__link--active"
+                href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="menu-list__item">
+              <a class="menu-list__link" href="./myLibary.html">My library</a>
+            </li>
+          </ul>
         </nav>
         <div class="logo">
-            <a class="logo__link link" href="#">
-                <img class="logo__icon" src="./images/header/logoo.svg" alt="logoComp" />
-                <div class="logo__text">Filmoteka</div>
-            </a>
+          <a class="logo__link link" href="#">
+            <img
+              class="logo__icon"
+              src="./images/header/logoo.svg"
+              alt="logoComp"
+            />
+            <div class="logo__text">Filmoteka</div>
+          </a>
         </div>
-    </div>
+      </div>
       <!-- <include src="./partials/header.html"></include> -->
-      
     </header>
     <main>
-    
-    <include src="./partials/film-cards.html"></include>
-        <!-- <div class="container-cards">
+      <include src="./partials/film-cards.html"></include>
+      <!-- <div class="container-cards">
           <img src="./image/nomovies.png" alt="no movies" class="start" />
         </div> -->
-      
-          <!-- SPINNER 1-->
-<!-- <div class="spinner-box"> 
+
+      <!-- SPINNER 1-->
+      <!-- <div class="spinner-box"> 
    <div class="preloader">
   <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
     <path fill="currentColor"
@@ -59,11 +74,11 @@
   </svg>
 </div> -->
 
-<!-- spinner 2, стилі знаходяться в файлі base-setting -->
-         <!-- <div class="lds-dual-ring"></div> -->
+      <!-- spinner 2, стилі знаходяться в файлі base-setting -->
+      <!-- <div class="lds-dual-ring"></div> -->
 
-                   <!-- <div class="pagination"> -->
-                  <!-- <div class="pagination">
+      <!-- <div class="pagination"> -->
+      <!-- <div class="pagination">
           <button type="button" class="pagination-btn active-pagination">
                   
           </button>
@@ -84,20 +99,20 @@
         </div> 
         </div> -->
     </main>
-    
+
     <footer>
       <include src="./footer.html"></include>
       <include src="./team.html"></include>
-    </footer>  
-      
-   
+      <include src="./modal-about-movie.html"></include>
+    </footer>
 
     <script type="module" src="./index.js"></script>
     <!-- <script type="module" src="./modal-team.js"></script> -->
     <!-- <script type="module" src="./pagination.js"></script> -->
-    
+
     <!-- <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> -->
     <!-- <script type="module" src="./js/render-markup.js"></script> -->
     <!-- <script type="module" src="./pagination.js"></script> -->
+    <script type="module" src="./modal-about-movie.js"></script>
   </body>
 </html>

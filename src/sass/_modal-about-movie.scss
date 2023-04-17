@@ -1,0 +1,457 @@
+$text-main-color: #000000;
+$time-transition: 500ms;
+$function-transition: cubic-bezier(0.4, 0, 0.2, 1);
+
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1280px;
+
+body.show-modal .backdrop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+  overflow: auto;
+}
+
+body.show-modal .modal-about-film {
+  transform: scale(1);
+}
+
+body.show-modal {
+  overflow: hidden;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $time-transition, visibility $time-transition;
+}
+
+.modal-about-film {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  margin: auto;
+  padding: 40px 10px 20px;
+
+  width: 100%;
+  min-height: auto;
+
+  background-color: #ffffff;
+  transform: scale(0.01);
+  transition: transform $time-transition;
+
+  @media screen and (min-width: $mobile) {
+    width: 280px;
+    padding: 48px 20px 40px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    column-gap: 68px;
+    width: 704px;
+    max-height: 552px;
+    padding: 40px 36px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    column-gap: 16px;
+    width: 806px;
+    height: 558px;
+    padding: 40px 12px;
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  background-color: inherit;
+  transition-property: background-color;
+  transition-duration: $time-transition;
+  transition-timing-function: $function-transition;
+
+  &:hover {
+    background-color: #b92f2c;
+  }
+}
+
+.modal-close-icon {
+  width: 25px;
+  height: 25px;
+  stroke: #000000;
+  fill: #000000;
+  transition-property: stroke, fill;
+  transition-duration: $time-transition;
+  transition-timing-function: $function-transition;
+
+  .modal-close-btn:hover & {
+    stroke: #ffffff;
+    fill: #ffffff;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.modal-about-film-image {
+  // width: 100%;
+  // height: auto;
+
+  @media screen and (min-width: $mobile) {
+    width: 240px;
+    height: 357px;
+    border-radius: 5px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 264px;
+    height: 374px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 375px;
+    height: 478px;
+  }
+}
+
+.about-film-container {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: $tablet) {
+    width: 300px;
+    max-height: 472px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 390px;
+    height: auto;
+  }
+}
+
+.film-info-container {
+  overflow-y: auto;
+  margin-bottom: 20px;
+  min-height: 190px;
+
+  // @media screen and (max-width: $tablet) {
+  // max-height: 372px;
+  // min-height: 124px;
+  // }
+
+  // @media screen and (min-width: $desktop) {
+  //   width: 390px;
+  //   height: auto;
+  // }
+}
+
+.modal-about-film-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: auto;
+
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: calc(35.16 / 30);
+  text-transform: uppercase;
+  color: #000000;
+  word-wrap: break-word;
+
+  @media screen and (min-width: $mobile) {
+    line-height: calc(23 / 20);
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 0;
+    // min-height: 1em;
+    // max-height: 6em;
+    // overflow-y: auto;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 30px;
+    line-height: calc(35.16 / 30);
+  }
+}
+
+.modal-about-film-list-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  list-style: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.modal-about-film-list-info__item {
+  display: inline-flex;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  color: #8c8c8c;
+}
+
+.modal-about-film-list-info__item-name {
+  display: inline-flex;
+  align-items: center;
+  width: 82px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  color: #8c8c8c;
+
+  @media screen and (min-width: $mobile) {
+    width: 108px;
+  }
+
+  @media screen and (min-width: $tablet) {
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 152px;
+  }
+}
+
+.modal-about-film__vote-data {
+  padding: 2px 9px;
+  border: #000000;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  color: #ffffff;
+  background-color: #b92f2c;
+}
+
+.modal-about-film__votes-data {
+  padding: 2px 4px;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  color: #000000;
+  background-color: #f7f7f7;
+}
+
+.modal-about-film__popularity-data {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  color: #000000;
+}
+
+.modal-about-film__original-title {
+  max-width: 84px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  color: #000000;
+  text-transform: uppercase;
+  word-wrap: break-word;
+
+  @media screen and (min-width: $mobile) {
+    max-width: 112px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    max-width: 175px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    max-width: 220px;
+  }
+}
+
+.modal-about-film__genre {
+  max-width: 84px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  color: #000000;
+
+  @media screen and (min-width: $mobile) {
+    max-width: 112px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    max-width: 175px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    max-width: 220px;
+  }
+}
+
+.modal-about-film-subtitle {
+  margin: 0 0 8px 0;
+  padding: 0;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.modal-about-film-infotext {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(20 / 12);
+  color: #000000;
+
+  @media screen and (min-width: $tablet) {
+  }
+
+  @media screen and (min-width: $desktop) {
+  }
+}
+
+.btn-container {
+  padding: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 4px;
+  row-gap: 5px;
+
+  @media screen and (min-width: $tablet) {
+    flex-wrap: nowrap;
+    column-gap: 8px;
+  }
+}
+
+.add-watched-btn {
+  width: auto;
+  height: 34px;
+  padding: 0 5px;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  color: #b92f2c;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  background-color: #ffffff;
+  transition-property: color, border, background-color;
+  transition-duration: $time-transition;
+  transition-timing-function: $function-transition;
+
+  &:hover {
+    color: #ffffff;
+    border: 1px solid #b92f2c;
+    background-color: #b92f2c;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: $mobile) {
+    padding: 0;
+    width: 120px;
+    height: 34px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 0px 15px;
+    width: 137px;
+    height: 38px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 150px;
+    height: 42px;
+  }
+}
+
+.add-queue-btn {
+  width: auto;
+  height: 34px;
+  padding: 0 5px;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  color: #b92f2c;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  background-color: #ffffff;
+  transition-property: color, border, background-color;
+  transition-duration: $time-transition;
+  transition-timing-function: $function-transition;
+
+  &:hover {
+    color: #ffffff;
+    border: 1px solid #b92f2c;
+    background-color: #b92f2c;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: $mobile) {
+    padding: 0;
+    width: 112px;
+    height: 34px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: 0px 15px;
+    width: 137px;
+    height: 38px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 150px;
+    height: 42px;
+  }
+}
+
+.on-storage {
+  color: #ffffff;
+  border: 1px solid #b92f2c;
+  background-color: #b92f2c;
+
+  &:hover {
+    color: #000000;
+  }
+}
