@@ -1,1 +1,0 @@
-{"mappings":"oeAAAA,EAAA,S","sources":["src/myLibary.js"],"sourcesContent":["import './spinner'\nimport './modal-team.js'"],"names":["parcelRequire"],"version":3,"file":"myLibary.9d67d388.js.map"}
