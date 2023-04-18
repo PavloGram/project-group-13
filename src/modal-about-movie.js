@@ -28,6 +28,10 @@ const addRemoveQueueBtn = document.querySelector('.add-queue-btn');
 
 const galleryContainerEl = document.querySelector('.container-card');
 const galleryEl = document.querySelector('.galleryFilms-js');
+const mainSectionEl = document.querySelector('main');
+
+const btnWatchedInMyLibrary = document.querySelector('.btn.js_watched');
+const btnQueueInMyLibrary = document.querySelector('.btn.js_queue');
 
 let watched = [];
 let queue = [];
@@ -59,7 +63,7 @@ function handleGallery(evt) {
   }
 
   let filmId = Number(evt.target.closest('.film-card').getAttribute('data-id'));
-  
+
   movieCard = evt.target.closest('.film-card');
 
   onOpenModal(filmId);
@@ -122,7 +126,7 @@ function onOpenModal(movieId) {
       console.error(error);
       Notify.failure(`Sorry, we don't find this movie`);
     })
-  .finally(Loading.remove());
+    .finally(Loading.remove());
 
   addRemoveWatchedBtn.addEventListener('click', handleWatchedStorage);
   addRemoveQueueBtn.addEventListener('click', handleQueueStorage);
@@ -176,10 +180,12 @@ function handleWatchedStorage(evt) {
     addRemoveWatchedBtn.classList.add('on-storage');
 
     //------тут треба добавляти, якщо при відкритій модалці на 'My library' вже видалили картку з розмітки------
-    if (galleryContainerEl.classList.contains('my-library')) {
+    if (
+      mainSectionEl.classList.contains('my-library') &&
+      btnWatchedInMyLibrary.classList.contains('is-active')
+    ) {
       galleryEl.append(movieCard);
     }
-
   } else {
     const delEl = watched.indexOf(movieId);
     watched.splice(delEl, 1);
@@ -188,10 +194,12 @@ function handleWatchedStorage(evt) {
     addRemoveWatchedBtn.classList.remove('on-storage');
 
     //------тут треба видалити картку з розмітки-----
-    if (galleryContainerEl.classList.contains('my-library')) {
+    if (
+      mainSectionEl.classList.contains('my-library') &&
+      btnWatchedInMyLibrary.classList.contains('is-active')
+    ) {
       movieCard.remove();
     }
-
   }
 }
 
@@ -206,10 +214,12 @@ function handleQueueStorage(evt) {
     addRemoveQueueBtn.textContent = 'Remove from Queue';
     addRemoveQueueBtn.classList.add('on-storage');
     //------тут треба добавляти, якщо при відкритій модалці на 'My library' вже видалили картку з розмітки------
-    if (galleryContainerEl.classList.contains('my-library')) {
+    if (
+      mainSectionEl.classList.contains('my-library') &&
+      btnQueueInMyLibrary.classList.contains('is-active')
+    ) {
       galleryEl.append(movieCard);
     }
-
   } else {
     const delEl = queue.indexOf(movieId);
     queue.splice(delEl, 1);
@@ -217,7 +227,10 @@ function handleQueueStorage(evt) {
     addRemoveQueueBtn.textContent = 'Add to Queue';
     addRemoveQueueBtn.classList.remove('on-storage');
     //------тут треба видалити картку з розмітки-----
-    if (galleryContainerEl.classList.contains('my-library')) {
+    if (
+      mainSectionEl.classList.contains('my-library') &&
+      btnQueueInMyLibrary.classList.contains('is-active')
+    ) {
       movieCard.remove();
     }
   }

@@ -47,15 +47,15 @@ function handleGetWatchedFilms() {
         if (savedData) {
         try {
             const filmData = JSON.parse(savedData);
-            console.log(filmData);
+            // console.log(filmData);
             filmData.map((id) => {
                 apiInfoMovies
                     .fetchMovies(id)
                     .then(({ data }) => {
-                        console.log(data);
+                        // console.log(data);
                         data.genre_ids = data.genres;
                         films.results.push(data);
-                        console.log(films);
+                        // console.log(films);
                     
                         renderMarkup(films); 
                     
@@ -91,16 +91,16 @@ function handleGetQueueFilms() {
     if (savedData) {
         try {
             const filmData = JSON.parse(savedData);
-            console.log(filmData);
+            // console.log(filmData);
             
             filmData.map((id) => {
                 apiInfoMovies
                     .fetchMovies(id)
                     .then(({ data }) => {
-                        console.log(data);
+                        // console.log(data);
                         data.genre_ids = data.genres;
                         films.results.push(data);
-                        console.log(films);
+                        // console.log(films);
                     
                         renderMarkup(films);
                     
