@@ -1,45 +1,77 @@
-import { Pagination } from "tui-pagination";
-const container = document.getElementById('tui-pagination-container');
+import Pagination from 'tui-pagination';
+import { renderMarkup } from './render-markup';
+import inputError from './input-error';
 
-const options = {
-    totalItems: 10,
-    itemsPerPage: 10,
-    visiblePages: 10,
-    page: 1,
-    centerAlign: false,
-    firstItemClassName: 'tui-first-child',
-    lastItemClassName: 'tui-last-child',
-    template: {
-      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-      currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-      moveButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}">' +
-          '<span class="tui-ico-{{type}}">{{type}}</span>' +
-        '</a>',
-      disabledMoveButton:
-        '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-          '<span class="tui-ico-{{type}}">{{type}}</span>' +
-        '</span>',
-      moreButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-          '<span class="tui-ico-ellip">...</span>' +
-        '</a>'
-    }
-  };
+const blockPag = document.getElementById('tui-pagination-container-search');
+// const searchPagination = document.querySelector('.search-pagination')
+// const basicPagination = document.querySelector('.tui-pagination')
+// console.log(basicPagination)
 
-const instance = new Pagination(container, { options });
+const pagination = new Pagination(blockPag, { visiblePages: 5 });
 
-instance.getCurrentPage();
+const BASE_URL_QUERY = 'https://api.themoviedb.org/3/search/movie';
+const API_KEY = '1962278b5026dd7c7bb0a91cd47f798b';
+
+const formEl = document.querySelector('.search');
+const spinnerEl = document.querySelector('.preloader__image');
+const inputErrEl = document.querySelector('.error-input ');
+
+formEl.addEventListener('submit', inputQuery);
+
+let value = '';
+let totalResults = 0;
+
+function inputQuery(e) {
+  e.preventDefault();
+  value = e.currentTarget.search.value.trim();
+
+  if (value === '') {
+           basicPagination.classList.add('is-hidden');
+    return inputErrEl.classList.add('is-hidden');
+  }
+
+  searchFilms(value);
+}
+
+function searchFilms(value, page) {
+  if (page === undefined) {
+    page = 1;
+  }
+  const searchParamsToQuery = new URLSearchParams({
+    api_key: '1962278b5026dd7c7bb0a91cd47f798b',
+    query: value,
+    page: page,
+  });
+  const url = `${BASE_URL_QUERY}?${searchParamsToQuery}`;
+  fetchFilms(url)
+    .then(data => {
+      totalResults = data.total_results;
+      renderMarkup(data);
+      inputError(totalResults);
+      if (page === 1) {
+        pagination.setTotalItems(totalResults);
+        pagination.setItemsPerPage(data.results.length);
+        pagination.reset();
+      }
+
+      // return console.log(totalResults);
+    })
+    .catch(er => {
+      console.log(er);
+    });
+}
 
 pagination.on('beforeMove', evt => {
-    const { page } = evt;
-    const result = ajax.call({page});
-  
-    if(result) {
-      pagination.movePageTo(page);
-    } else {
-      return false;
+  const { page } = evt;
+
+  searchFilms(value, page);
+});
+
+function fetchFilms(url) {
+  return fetch(url).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
     }
+    return response.json();
   });
-  
-  pagination.on('afterMove', ({ page }) => console.log(page));
+}
