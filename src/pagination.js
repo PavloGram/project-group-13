@@ -1,11 +1,14 @@
 // import { fetchFilms } from './fetchFilms.js';
 import { renderMarkup } from './js/render-markup';
+import inputError from './input-error';
+
 const BASE_URL_TRENDS = 'https://api.themoviedb.org/3/trending/all/day';
 const BASE_URL_QUERY = 'https://api.themoviedb.org/3/search/movie';
 const API_KEY = '1962278b5026dd7c7bb0a91cd47f798b';
 
 const formEl = document.querySelector('.search');
 const spinnerEl = document.querySelector('.preloader__image');
+const inputErrEl = document.querySelector('.error-input ');
 
 formEl.addEventListener('submit', inputQuery);
 
@@ -16,6 +19,10 @@ let totalResults = 0;
 function inputQuery(e) {
   e.preventDefault()
   value = value = e.currentTarget.search.value.trim();
+
+  if (value === '') {
+    return inputErrEl.classList.add('is-hidden');
+  }
 
   const searchParamsToQuery = new URLSearchParams({
     api_key: '1962278b5026dd7c7bb0a91cd47f798b',
@@ -28,14 +35,17 @@ function inputQuery(e) {
       totalResults = forMarcup.total_results;
       console.log(forMarcup)
       renderMarkup(forMarcup);
+      inputError(totalResults);
+
+      // return console.log(totalResults);
     })
     .catch(er => {
       console.log(er);
     });
 }
-// <----------функція яка викликається при натисканні на кнопки пагінації 
+// <----------функція яка викликається при натисканні на кнопки пагінації
 // в count має передаватися номер сторінки яка має бути завантажена і намальована------->
-function moreFilms(count){
+function moreFilms(count) {
   const searchParamsToQuery = new URLSearchParams({
     api_key: '1962278b5026dd7c7bb0a91cd47f798b',
     query: value,
@@ -44,7 +54,6 @@ function moreFilms(count){
   const url = `${BASE_URL_QUERY}?${searchParamsToQuery}`;
   fetchFilms(url)
     .then(forMarcup => {
-    
       // return console.log(totalResults);
     })
     .catch(er => {
@@ -60,7 +69,6 @@ function fetchFilms(url) {
     return response.json();
   });
 }
-
 
 // <----------------->
 
