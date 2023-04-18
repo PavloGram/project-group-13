@@ -41,6 +41,8 @@ function handleGetWatchedFilms() {
   watchedButton.classList.add('btn-active');
   queueButton.classList.remove('btn-active');
 
+
+  let datagenre_ids = []; 
   let films = {
     results: [],
   };
@@ -55,7 +57,9 @@ function handleGetWatchedFilms() {
           .then(({ data }) => {
             // console.log(data);
             nomoviesimages.classList.add('is-hidden');
-            data.genre_ids = [];
+            // data.genre_ids = [];
+            datagenre_ids = data.genres.map(genre => genre.id);
+                        data.genre_ids = datagenre_ids;
             data.genres.map(genre => data.genre_ids.push(genre.id));
             films.results.push(data);
             // console.log(films);
@@ -86,6 +90,7 @@ function handleGetQueueFilms() {
   watchedButton.classList.remove('btn-active');
   queueButton.classList.add('btn-active');
 
+  let datagenre_ids = []; 
   let films = {
     results: [],
   };
@@ -101,7 +106,9 @@ function handleGetQueueFilms() {
           .then(({ data }) => {
             // console.log(data);
             nomoviesimages.classList.add('is-hidden');
-            data.genre_ids = [];
+            // data.genre_ids = [];
+            datagenre_ids = data.genres.map(genre => genre.id);
+                        data.genre_ids = datagenre_ids;
             data.genres.map(genre => data.genre_ids.push(genre.id));
             films.results.push(data);
             // console.log(films);
