@@ -11,7 +11,7 @@ import member5 from '../images/team/Iryna_Vakulenko.jpg';
 import member6 from '../images/team/Oleh_Zhuravskyi.jpg';
 import member7 from '../images/team/Ruslana_Semenenko.jpg';
 import member8 from '../images/team/Yuriy_Berketa.jpg';
-// import member9 from '../images/team/Vadim_Khvostikov.jpg';
+import member9 from '../images/team/Vadim_Khvostikov.jpg';
 import member10 from '../images/team/Ruslan_Grudistov.jpg';
 
 
@@ -64,12 +64,12 @@ export const teamMembers = [
         photo: member8,
         work: 'HTML, CSS, Java Script',
     },
-    // {
-    //     name: 'Vadim Khvostikov',
-    //     icon: iconMale,
-    //     photo: member9,
-    //     work: 'HTML, CSS, Java Script',
-    // },
+    {
+        name: 'Vadim Khvostikov',
+        icon: iconMale,
+        photo: member9,
+        work: 'HTML, CSS, Java Script',
+    },
     {
         name: 'Ruslan Grudistov',
         icon: iconMale,
