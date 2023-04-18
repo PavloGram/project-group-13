@@ -4,7 +4,7 @@ import iconMale from './images/team/icon-male.png';
 import iconFemale from './images/team/icon-female.png';
 
 import member1 from './images/team/Pavlo_Gramazhora.jpg';
-import member2 from './images/team/Tetiana_Novikova.jpeg';
+import member2 from './images/team/Tetiana_Novikova.jpg';
 import member3 from './images/team/Volodymyr_Medvid.jpg';
 import member4 from './images/team/Dmytro_Svirin.jpg';
 import member5 from './images/team/Iryna_Vakulenko.jpg';
