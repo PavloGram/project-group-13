@@ -64,12 +64,12 @@ export const teamMembers = [
         photo: member8,
         work: 'HTML, CSS, Java Script',
     },
-    {
-        name: 'Vadim Khvostikov',
-        icon: iconMale,
-        photo: member9,
-        work: 'HTML, CSS, Java Script',
-    },
+    // {
+    //     name: 'Vadim Khvostikov',
+    //     icon: iconMale,
+    //     photo: member9,
+    //     work: 'HTML, CSS, Java Script',
+    // },
     {
         name: 'Ruslan Grudistov',
         icon: iconMale,
