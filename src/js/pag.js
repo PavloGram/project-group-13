@@ -3,8 +3,8 @@ import { renderMarkup } from './render-markup';
 import inputError from './input-error';
 
 const blockPag = document.getElementById('tui-pagination-container-search');
-// const searchPagination = document.querySelector('.search-pagination')
-// const basicPagination = document.querySelector('.tui-pagination')
+const searchPagination = document.querySelector('.search-pagination')
+const basicPagination = document.querySelector('.tui-pagination')
 // console.log(basicPagination)
 
 const pagination = new Pagination(blockPag, { visiblePages: 5 });
@@ -46,9 +46,12 @@ function searchFilms(value, page) {
   fetchFilms(url)
     .then(data => {
       totalResults = data.total_results;
+      searchPagination.classList.remove('is-hidden')
+      basicPagination.classList.add('is-hidden')
       renderMarkup(data);
       inputError(totalResults);
       if (page === 1) {
+       
         pagination.setTotalItems(totalResults);
         pagination.setItemsPerPage(data.results.length);
         pagination.reset();
