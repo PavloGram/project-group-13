@@ -1,5 +1,5 @@
 // import { fetchFilms } from './fetchFilms.js';
-import { renderMarkup } from './js/render-markup';
+import { renderMarkup } from './render-markup';
 import inputError from './input-error';
 
 const BASE_URL_TRENDS = 'https://api.themoviedb.org/3/trending/all/day';

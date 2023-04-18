@@ -1,4 +1,4 @@
-import { renderMarkup } from './js/render-markup.js';
+import { renderMarkup } from './render-markup';
 import axios from 'axios';
 
 const STORAGE_KEY_WATCH = 'watched';

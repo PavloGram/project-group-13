@@ -2,7 +2,7 @@ import axios from 'axios';
 // import { createCardsGallery } from './createCardGallery'; поміняти
 
 // const galleryEl = document.querySelector('.gallery'); замінити
-import { renderMarkup } from './js/render-markup';
+import { renderMarkup } from './render-markup';
 
 
  class APIpopular {
