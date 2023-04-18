@@ -32,11 +32,12 @@ margin-left: auto;
 
     @media screen and (min-width: $table-width) {
             gap: 32px;
-            margin-top: 32px;
+            align-items: center;
+            // margin-top: 32px;
         }
     
         @media screen and (min-width: $desktop-width) {
-            gap: 14px;
+            gap: 32px 16px;
         }
     }
 
@@ -49,20 +50,41 @@ margin-left: auto;
     cursor: pointer;
 
     @media screen and (min-width: $mobile-width) {
-        // margin-top: 20px;
+        width: 280px;
     }
     @media screen and (min-width:$table-width) {
-        // margin-top: 32px;
+        width: calc(50% - 16px);
+        // height: 494px;
     }
+        @media screen and (min-width: $desktop-width) {
+            width: calc(33.3333% - 10.6667px);
+            height: 634px;
+        }
 
     transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
-.film-card:first-child {
-    margin-top: 20px;
-    @media screen and (min-width:$table-width) {
-            margin-top: 0;
+
+.film-card img {
+    @media screen and (min-width: $mobile-width) {
+            
         }
+    
+        @media screen and (min-width:$table-width) {
+           
+        }
+    
+        @media screen and (min-width: $desktop-width) {
+            
+            height: 574px;
+        }
+    
 }
+// .film-card:first-child {
+//     margin-top: 20px;
+//     @media screen and (min-width:$table-width) {
+//             margin-top: 0;
+//         }
+// }
 
 .film-card:hover {
     transform: scale(1.02);
@@ -75,10 +97,12 @@ margin-left: auto;
     @media screen and (min-width: $table-width) {
         max-width: 336px;
         min-width: 100%;
+        height: 494px;
     }
 
     @media screen and (min-width: $desktop-width) {
         min-width: 396px;
+        height: 574px;
     }
 }
 
@@ -94,6 +118,10 @@ margin-left: auto;
     @media screen and (min-width: $table-width) {
         line-height: 1.33;
         }
+                @media screen and (min-width: $desktop-width) {
+                    font-size: 20px;
+                    line-height: 1.2;
+                }
 }
 
 .film-details {

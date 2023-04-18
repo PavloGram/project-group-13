@@ -10,14 +10,14 @@
   @media screen and (max-width: 767px) {
     flex-direction: column;
     gap: 20px;
-    align-items: center;
-    margin-top: 20px;
+    align-items: stretch;
+    // margin-top: 20px;
     margin-bottom: 40px;
   }
   @media screen and (min-width: 768px) {
     flex-direction: row;
 
-    margin-top: 32px;
+    // margin-top: 32px;
     margin-bottom: 60px;
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
