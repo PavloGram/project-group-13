@@ -30,7 +30,7 @@ const apiInfoMovies = new ApiMovieSearch ();
 
 
 function handleGetWatchedFilms() {
-        filmList.innerHTML = "";
+        // filmList.innerHTML = "";
         const savedData = localStorage.getItem(STORAGE_KEY_WATCH);
 
         nomoviesimages.classList.add('is-hidden');
