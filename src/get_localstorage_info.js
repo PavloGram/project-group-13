@@ -39,6 +39,8 @@ function handleGetWatchedFilms() {
         queueButton.classList.remove('is-active');
         }
         watchedButton.classList.add('is-active');
+        watchedButton.classList.add('btn-active');
+        queueButton.classList.remove('btn-active');
     
     let films = {
         results: [],
@@ -83,7 +85,9 @@ function handleGetQueueFilms() {
         watchedButton.classList.remove('is-active');
     }
     queueButton.classList.add('is-active');
-     
+    watchedButton.classList.remove('btn-active');
+    queueButton.classList.add('btn-active');
+
         let films = {
         results: [],
     };
