@@ -1,6 +1,8 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
+Loading.init({ svgColor: '#b92f2c' });
+
 const API_KEY = '1962278b5026dd7c7bb0a91cd47f798b';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
@@ -24,8 +26,8 @@ const filmTextAboutEl = document.querySelector('.modal-about-film-infotext');
 const addRemoveWatchedBtn = document.querySelector('.add-watched-btn');
 const addRemoveQueueBtn = document.querySelector('.add-queue-btn');
 
-const galleryContainer = document.querySelector('.galleryFilms-js');
-const galleryOnMyLibraryEl = document.querySelector('.my-library');
+const galleryContainerEl = document.querySelector('.container-card');
+const galleryEl = document.querySelector('.galleryFilms-js');
 
 let watched = [];
 let queue = [];
@@ -49,21 +51,22 @@ const load = key => {
   }
 };
 
-galleryContainer.addEventListener('click', handleGallery);
+galleryEl.addEventListener('click', handleGallery);
 
 function handleGallery(evt) {
   if (evt.target === evt.currentTarget) {
     return;
   }
 
-  let filmId = Number(evt.target.closest('div > div').getAttribute('data-id'));
-
-  movieCard = evt.target.closest('div > div');
+  let filmId = Number(evt.target.closest('.film-card').getAttribute('data-id'));
+  
+  movieCard = evt.target.closest('.film-card');
 
   onOpenModal(filmId);
 }
 
 function onOpenModal(movieId) {
+  backdrop.classList.remove('backdrop-hidden');
   modalMovie.setAttribute('data-id', `${movieId}`);
 
   watched = load('watched') ? load('watched') : [];
@@ -86,7 +89,6 @@ function onOpenModal(movieId) {
 
   fetchMovieById(movieId)
     .then(movie => {
-
       if (movie.poster_path == null) {
         filmImageEl.setAttribute(
           'alt',
@@ -120,7 +122,7 @@ function onOpenModal(movieId) {
       console.error(error);
       Notify.failure(`Sorry, we don't find this movie`);
     })
-    .finally(Loading.remove());
+  .finally(Loading.remove());
 
   addRemoveWatchedBtn.addEventListener('click', handleWatchedStorage);
   addRemoveQueueBtn.addEventListener('click', handleQueueStorage);
@@ -135,6 +137,7 @@ function onCloseModal() {
   addRemoveWatchedBtn.removeEventListener('click', handleWatchedStorage);
   addRemoveQueueBtn.removeEventListener('click', handleQueueStorage);
   modalMovie.removeAttribute('data-id');
+  backdrop.classList.add('backdrop-hidden');
 }
 
 backdrop.addEventListener('click', onBackdropClick);
@@ -173,9 +176,10 @@ function handleWatchedStorage(evt) {
     addRemoveWatchedBtn.classList.add('on-storage');
 
     //------тут треба добавляти, якщо при відкритій модалці на 'My library' вже видалили картку з розмітки------
-    if (galleryContainer.classList.contains('my-library')) {
-      galleryContainer.append(movieCard);
+    if (galleryContainerEl.classList.contains('my-library')) {
+      galleryEl.append(movieCard);
     }
+
   } else {
     const delEl = watched.indexOf(movieId);
     watched.splice(delEl, 1);
@@ -184,9 +188,10 @@ function handleWatchedStorage(evt) {
     addRemoveWatchedBtn.classList.remove('on-storage');
 
     //------тут треба видалити картку з розмітки-----
-    if (galleryContainer.classList.contains('my-library')) {
+    if (galleryContainerEl.classList.contains('my-library')) {
       movieCard.remove();
     }
+
   }
 }
 
@@ -201,9 +206,10 @@ function handleQueueStorage(evt) {
     addRemoveQueueBtn.textContent = 'Remove from Queue';
     addRemoveQueueBtn.classList.add('on-storage');
     //------тут треба добавляти, якщо при відкритій модалці на 'My library' вже видалили картку з розмітки------
-    if (galleryContainer.classList.contains('my-library')) {
-      galleryContainer.append(movieCard);
+    if (galleryContainerEl.classList.contains('my-library')) {
+      galleryEl.append(movieCard);
     }
+
   } else {
     const delEl = queue.indexOf(movieId);
     queue.splice(delEl, 1);
@@ -211,7 +217,7 @@ function handleQueueStorage(evt) {
     addRemoveQueueBtn.textContent = 'Add to Queue';
     addRemoveQueueBtn.classList.remove('on-storage');
     //------тут треба видалити картку з розмітки-----
-    if (galleryContainer.classList.contains('my-library')) {
+    if (galleryContainerEl.classList.contains('my-library')) {
       movieCard.remove();
     }
   }

@@ -14,7 +14,7 @@ body.show-modal .backdrop {
 }
 
 body.show-modal .modal-about-film {
-  transform: scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 body.show-modal {
@@ -25,22 +25,25 @@ body.show-modal {
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 100;
 
-  pointer-events: none;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity $time-transition, visibility $time-transition;
 }
 
 .modal-about-film {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
   display: flex;
   flex-direction: column;
 
@@ -51,7 +54,7 @@ body.show-modal {
   min-height: auto;
 
   background-color: #ffffff;
-  transform: scale(0.01);
+  transform: translate(-50%, -50%) scale(0.02);
   transition: transform $time-transition;
 
   @media screen and (min-width: $mobile) {
@@ -73,6 +76,20 @@ body.show-modal {
     height: 558px;
     padding: 40px 12px;
   }
+}
+
+.backdrop-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .modal-close-btn {

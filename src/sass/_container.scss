@@ -13,10 +13,8 @@
     align-items: center;
     margin-top: 20px;
     margin-bottom: 40px;
-   
   }
   @media screen and (min-width: 768px) {
-   
     flex-direction: row;
 
     margin-top: 32px;
@@ -27,11 +25,13 @@
     max-width: 768px;
   }
   @media screen and (min-width: 1280px) {
-
     gap: 16px;
   }
 }
 .start {
+  margin-left: auto;
+  margin-right: auto;
+
   @media screen and (max-width: 767px) {
     width: 150px;
     height: 150px;
