@@ -54,14 +54,31 @@ margin-left: auto;
     }
     @media screen and (min-width:$table-width) {
         width: calc(50% - 16px);
+        // height: 494px;
     }
         @media screen and (min-width: $desktop-width) {
             width: calc(33.3333% - 10.6667px);
+            height: 634px;
         }
 
     transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
 
+.film-card img {
+    @media screen and (min-width: $mobile-width) {
+            
+        }
+    
+        @media screen and (min-width:$table-width) {
+           
+        }
+    
+        @media screen and (min-width: $desktop-width) {
+            
+            height: 574px;
+        }
+    
+}
 // .film-card:first-child {
 //     margin-top: 20px;
 //     @media screen and (min-width:$table-width) {
@@ -80,6 +97,7 @@ margin-left: auto;
     @media screen and (min-width: $table-width) {
         max-width: 336px;
         min-width: 100%;
+        height: 494px;
     }
 
     @media screen and (min-width: $desktop-width) {
