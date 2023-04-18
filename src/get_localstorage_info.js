@@ -33,7 +33,7 @@ function handleGetWatchedFilms() {
         galleryFilms.innerHTML = "";
         const savedData = localStorage.getItem(STORAGE_KEY_WATCH);
 
-        nomoviesimages.classList.add('is-hidden');
+        nomoviesimages.classList.remove('is-hidden');
     
         if (queueButton.classList.contains('is-active')) {
         queueButton.classList.remove('is-active');
@@ -47,7 +47,7 @@ function handleGetWatchedFilms() {
     };
     
         if (savedData) {
-        try {
+            try {
             const filmData = JSON.parse(savedData);
             // console.log(filmData);
             filmData.map((id) => {
@@ -55,6 +55,7 @@ function handleGetWatchedFilms() {
                     .fetchMovies(id)
                     .then(({ data }) => {
                         // console.log(data);
+                        nomoviesimages.classList.add('is-hidden');
                         data.genre_ids = data.genres;
                         films.results.push(data);
                         // console.log(films);
@@ -79,8 +80,8 @@ function handleGetQueueFilms() {
     
     const savedData = localStorage.getItem(STORAGE_KEY_QUEUE);
     
-    nomoviesimages.classList.add('is-hidden');
-    
+    nomoviesimages.classList.remove('is-hidden');
+
     if (watchedButton.classList.contains('is-active')) {
         watchedButton.classList.remove('is-active');
     }
@@ -102,6 +103,7 @@ function handleGetQueueFilms() {
                     .fetchMovies(id)
                     .then(({ data }) => {
                         // console.log(data);
+                        nomoviesimages.classList.add('is-hidden');
                         data.genre_ids = data.genres;
                         films.results.push(data);
                         // console.log(films);
