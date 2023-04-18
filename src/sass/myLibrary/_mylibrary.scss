@@ -6,13 +6,15 @@
 
 header {
     margin: 20px;
-    
+    display: flex;
+        justify-content: center;
     @media screen and(min-width:768px) {
             margin: 32px;
         }
 }
 
 .header {
+    
     margin: 20px;
     
     @media screen and(min-width:768px) {
@@ -41,7 +43,7 @@ header {
     }
 
     @media screen and (min-width: 1280px) {
-        max-width: 1200px;
+        max-width: 1280px;
     }
 }
 
