@@ -15,7 +15,6 @@ import member9 from './images/team/Vadim_Khvostikov.jpg';
 import member10 from './images/team/Ruslan_Grudistov.jpg';
 
 
-
 export const teamMembers = [
     {
         name: 'Pavlo Gramazhora',
