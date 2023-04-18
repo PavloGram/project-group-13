@@ -43,7 +43,9 @@ br {
     fill: #B92F2C;
     margin: 0 10px;
 }
-.team-modal__link-open {
+.team-modal__btn-open {
     text-decoration: underline;
     color: inherit;
+    border: none;
+    background-color: transparent;
 }
