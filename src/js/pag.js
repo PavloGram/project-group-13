@@ -3,9 +3,8 @@ import { renderMarkup } from './render-markup';
 import inputError from './input-error';
 
 const blockPag = document.getElementById('tui-pagination-container-search');
-const searchPagination = document.querySelector('.search-pagination')
-const basicPagination = document.querySelector('.tui-pagination')
-// console.log(basicPagination)
+const searchPagination = document.querySelector('.search-pagination');
+const basicPagination = document.querySelector('.tui-pagination');
 
 const pagination = new Pagination(blockPag, { visiblePages: 5 });
 
@@ -26,7 +25,7 @@ function inputQuery(e) {
   value = e.currentTarget.search.value.trim();
 
   if (value === '') {
-           basicPagination.classList.add('is-hidden');
+    basicPagination.classList.add('is-hidden');
     return inputErrEl.classList.add('is-hidden');
   }
 
@@ -46,18 +45,15 @@ function searchFilms(value, page) {
   fetchFilms(url)
     .then(data => {
       totalResults = data.total_results;
-      searchPagination.classList.remove('is-hidden')
-      basicPagination.classList.add('is-hidden')
+      searchPagination.classList.remove('is-hidden');
+      basicPagination.classList.add('is-hidden');
       renderMarkup(data);
       inputError(totalResults);
       if (page === 1) {
-       
         pagination.setTotalItems(totalResults);
         pagination.setItemsPerPage(data.results.length);
         pagination.reset();
       }
-
-      // return console.log(totalResults);
     })
     .catch(er => {
       console.log(er);
