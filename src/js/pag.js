@@ -2,10 +2,8 @@ import Pagination from 'tui-pagination';
 import { renderMarkup } from './render-markup';
 import inputError from './input-error';
 
-
 const basicPagination = document.querySelector('.tui-pagination');
 const blockPag = document.getElementById('tui-pagination-container');
-
 
 const pagination = new Pagination(blockPag, { visiblePages: 5 });
 
@@ -47,9 +45,9 @@ function searchFilms(value, page) {
   fetchFilms(url)
     .then(data => {
       totalResults = data.total_results;
-    
-     
+
       basicPagination.classList.remove('is-hidden');
+      console.log(data);
       renderMarkup(data);
       inputError(totalResults);
       if (page === 1) {
