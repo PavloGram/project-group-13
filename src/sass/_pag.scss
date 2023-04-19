@@ -1,0 +1,45 @@
+.tui-pagination .tui-page-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  color: #000000;
+  padding: 13px 13px 11px;
+  font-size: 12px;
+  font-weight: 500;
+  border: transparent;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    background: #b92f2c;
+    color: #ffffff;
+  }
+}
+.tui-pagination .tui-is-selected {
+  color: #ffffff;
+  background: #b92f2c;
+  border-color: #b92f2c;
+}
+
+.tui-pagination .hide-first,
+.tui-pagination .hide-last {
+  background: rgba(247, 247, 247, 0.5);
+}
+.tui-pagination .tui-first-is-ellip:hover,
+.tui-pagination .tui-last-is-ellip:hover,
+.tui-pagination .hide-last:hover,
+.tui-pagination .hide-first:hover {
+  background: #b92f2c;
+}
+
+.tui-pagination .tui-first:hover,
+.tui-pagination .tui-prev:hover,
+.tui-pagination .tui-next:hover,
+.tui-pagination .tui-last:hover {
+  background: #f7f7f7;
+}
+
+.tui-pagination .tui-ico-first,
+.tui-pagination .tui-ico-prev,
+.tui-pagination .tui-ico-next,
+.tui-pagination .tui-ico-last {
+  vertical-align: top;
+}
