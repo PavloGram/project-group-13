@@ -53,7 +53,7 @@ function handleGetWatchedFilms() {
 
   if (filmData) {
     try {
-      nomoviesimages.classList.add('is-hidden');
+      
        filmData.map(id => {
         apiInfoMovies
           .fetchMovies(id)
@@ -82,7 +82,7 @@ function handleGetQueueFilms() {
 
     if (filmData.length === 0) {
       nomoviesimages.classList.remove('is-hidden');
-    }
+    } 
 
   if (watchedButton.classList.contains('is-active')) {
     watchedButton.classList.remove('is-active');
@@ -98,7 +98,7 @@ function handleGetQueueFilms() {
 
   if (filmData) {
     try {
-      nomoviesimages.classList.add('is-hidden');
+      
         filmData.map(id => {
         apiInfoMovies
           .fetchMovies(id)
