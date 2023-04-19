@@ -1,7 +1,7 @@
 export default function inputError(result) {
   const inputErrEl = document.querySelector('.error-input ');
   const imgEl = document.querySelector('.start');
-  const searchPagination = document.querySelector('.search-pagination');
+  const searchPagination = document.querySelector('.basic-pagination');
   if (result === 0) {
     searchPagination.classList.add('is-hidden');
     imgEl.classList.remove('is-hidden');
