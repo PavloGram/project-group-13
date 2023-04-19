@@ -53,6 +53,7 @@ function handleGetWatchedFilms() {
 
   if (filmData) {
     try {
+      nomoviesimages.classList.add('is-hidden');
        filmData.map(id => {
         apiInfoMovies
           .fetchMovies(id)
@@ -97,6 +98,7 @@ function handleGetQueueFilms() {
 
   if (filmData) {
     try {
+      nomoviesimages.classList.add('is-hidden');
         filmData.map(id => {
         apiInfoMovies
           .fetchMovies(id)
