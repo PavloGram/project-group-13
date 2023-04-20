@@ -30,14 +30,14 @@ const apiInfoMovies = new ApiMovieSearch();
 
 function handleGetWatchedFilms() {
   galleryFilms.innerHTML = '';
-  
+
   const savedData = localStorage.getItem(STORAGE_KEY_WATCH);
-  
+
   const filmData = JSON.parse(savedData);
-  
-    if (filmData.length === 0) {
-        nomoviesimages.classList.remove('is-hidden');
-    }
+
+  if (filmData.length === 0) {
+    nomoviesimages.classList.remove('is-hidden');
+  }
 
   if (queueButton.classList.contains('is-active')) {
     queueButton.classList.remove('is-active');
@@ -53,8 +53,7 @@ function handleGetWatchedFilms() {
 
   if (filmData) {
     try {
-      
-       filmData.map(id => {
+      filmData.map(id => {
         apiInfoMovies
           .fetchMovies(id)
           .then(({ data }) => {
@@ -80,9 +79,9 @@ function handleGetQueueFilms() {
   const savedData = localStorage.getItem(STORAGE_KEY_QUEUE);
   const filmData = JSON.parse(savedData);
 
-    if (filmData.length === 0) {
-      nomoviesimages.classList.remove('is-hidden');
-    } 
+  if (filmData.length === 0) {
+    nomoviesimages.classList.remove('is-hidden');
+  }
 
   if (watchedButton.classList.contains('is-active')) {
     watchedButton.classList.remove('is-active');
@@ -98,8 +97,7 @@ function handleGetQueueFilms() {
 
   if (filmData) {
     try {
-      
-        filmData.map(id => {
+      filmData.map(id => {
         apiInfoMovies
           .fetchMovies(id)
           .then(({ data }) => {
@@ -123,3 +121,27 @@ function handleGetQueueFilms() {
 watchedButton.addEventListener('click', handleGetWatchedFilms);
 queueButton.addEventListener('click', handleGetQueueFilms);
 window.addEventListener('load', handleGetWatchedFilms);
+
+const addRemoveWatchedBtn = document.querySelector('.add-watched-btn');
+const addRemoveQueueBtn = document.querySelector('.add-queue-btn');
+
+addRemoveWatchedBtn.addEventListener('click', showMenW);
+addRemoveQueueBtn.addEventListener('click', showMenQ);
+
+function showMenW() {
+  const savedDataLocal = localStorage.getItem(STORAGE_KEY_WATCH);
+  const filmDatalocal = JSON.parse(savedDataLocal);
+
+  if (filmDatalocal.length === 0) {
+    nomoviesimages.classList.remove('is-hidden');
+  }
+}
+
+function showMenQ() {
+  const savedDataLocal = localStorage.getItem(STORAGE_KEY_QUEUE);
+  const filmDatalocal = JSON.parse(savedDataLocal);
+
+  if (filmDatalocal.length === 0) {
+    nomoviesimages.classList.remove('is-hidden');
+  }
+}

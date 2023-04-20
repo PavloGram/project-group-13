@@ -62,6 +62,7 @@ function searchFilms(value, page) {
 }
 
 pagination.on('beforeMove', evt => {
+  window.scrollTo(0, 0);
   const { page } = evt;
 
   searchFilms(value, page);

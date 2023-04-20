@@ -46,6 +46,7 @@ const handlerLoadWindow = () => {
 window.addEventListener('load', handlerLoadWindow);
 
 pagination.on('beforeMove', evt => {
+  window.scrollTo(0, 0);
   const { page } = evt;
 
   ApipopularMovies.fetchMovies(page)
