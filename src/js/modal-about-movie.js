@@ -244,23 +244,25 @@ const STORAGE_KEY_WATCH = 'watched';
 const STORAGE_KEY_QUEUE = 'queue';
 
 function showW() {
-  galleryEl.innerHTML = '';
+  
 
   const savedData = localStorage.getItem(STORAGE_KEY_WATCH);
 
   const filmData = JSON.parse(savedData);
 
   if (filmData.length === 0 && window.location.href === 'https://pavlogram.github.io/project-group-13/myLibary.html') {
+    galleryEl.innerHTML = '';
     nomoviesimages.classList.remove('is-hidden');
   }
 }
 function showQ() {
-  galleryEl.innerHTML = '';
+ 
 
   const savedData = localStorage.getItem(STORAGE_KEY_QUEUE);
   const filmData = JSON.parse(savedData);
 
   if (filmData.length === 0 && window.location.href === 'https://pavlogram.github.io/project-group-13/myLibary.html') {
+    galleryEl.innerHTML = '';
     nomoviesimages.classList.remove('is-hidden');
   }
 }
