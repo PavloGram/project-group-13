@@ -242,6 +242,7 @@ addRemoveQueueBtn.addEventListener('click', showQ);
 
 const STORAGE_KEY_WATCH = 'watched';
 const STORAGE_KEY_QUEUE = 'queue';
+const nomoviesimages = document.querySelector('.start');
 
 function showW() {
   
