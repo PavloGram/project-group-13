@@ -260,6 +260,7 @@ function showQ() {
 
   const savedData = localStorage.getItem(STORAGE_KEY_QUEUE);
   const filmData = JSON.parse(savedData);
+  console.log(window.location.href);
 
   if (filmData.length === 0 && window.location.href === 'https://pavlogram.github.io/project-group-13/myLibary.html') {
     galleryEl.innerHTML = '';
