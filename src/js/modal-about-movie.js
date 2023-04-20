@@ -244,7 +244,7 @@ const STORAGE_KEY_WATCH = 'watched';
 const STORAGE_KEY_QUEUE = 'queue';
 
 function showW() {
-  galleryFilms.innerHTML = '';
+  galleryEl.innerHTML = '';
 
   const savedData = localStorage.getItem(STORAGE_KEY_WATCH);
 
@@ -255,7 +255,7 @@ function showW() {
   }
 }
 function showQ() {
-  galleryFilms.innerHTML = '';
+  galleryEl.innerHTML = '';
 
   const savedData = localStorage.getItem(STORAGE_KEY_QUEUE);
   const filmData = JSON.parse(savedData);
