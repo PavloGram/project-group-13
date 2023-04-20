@@ -22,6 +22,7 @@ let totalResults = 0;
 function inputQuery(e) {
   e.preventDefault();
   value = e.currentTarget.search.value.trim();
+  console.log(window.location);
 
   if (value === '') {
     basicPagination.classList.add('is-hidden');
