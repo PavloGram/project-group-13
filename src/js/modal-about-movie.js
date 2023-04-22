@@ -36,6 +36,8 @@ const btnQueueInMyLibrary = document.querySelector('.btn.js_queue');
 let watched = [];
 let queue = [];
 let movieCard = '';
+let movieTrailerURL;
+let movieOfficialSite;
 
 const save = (key, value) => {
   try {
@@ -121,6 +123,7 @@ function onOpenModal(movieId) {
 
       document.body.classList.add('show-modal');
       window.addEventListener('keydown', onEscKeyPress);
+      trailerBtnEl.addEventListener('click', handleTrailerBtn);
     })
     .catch(error => {
       console.error(error);
@@ -142,6 +145,7 @@ function onCloseModal() {
   addRemoveQueueBtn.removeEventListener('click', handleQueueStorage);
   modalMovie.removeAttribute('data-id');
   backdrop.classList.add('backdrop-hidden');
+  trailerBtnEl.removeEventListener('click', handleTrailerBtn);
 }
 
 backdrop.addEventListener('click', onBackdropClick);
@@ -234,4 +238,65 @@ function handleQueueStorage(evt) {
       movieCard.remove();
     }
   }
+}
+
+const trailerBtnEl = document.querySelector('.movie-trailer');
+const trailerBackdrop = document.querySelector('.trailer-backdrop');
+const trailerContainer = document.querySelector('.trailer-container');
+const trailerPlayer = document.querySelector('.trailer-player');
+
+function handleTrailerBtn(evt) {
+  let movieID = modalMovie.getAttribute('data-id');
+  console.log('movieID:', movieID); //----------------забрати-------
+
+  fetchTrailerById(movieID)
+    .then(video => {
+      movieTrailerURL = video.results[0];
+      console.log('movieTrailerURL:', movieTrailerURL.key); //-------
+
+      trailerBackdrop.classList.remove('backdrop-hidden');
+      document.body.classList.add('show-trailer');
+      trailerBackdrop.addEventListener('click', onBackdropTrailerClick);
+      window.removeEventListener('keydown', onEscKeyPress);
+      window.addEventListener('keydown', onEscKeyPressTrailer);
+      trailerPlayer.setAttribute('src', `https://www.youtube.com/embed/${movieTrailerURL.key}`);
+    })
+    .catch(error => {
+      console.error(error);
+      Notify.failure(`Sorry, we don't have a trailer for this movie.`);
+    })
+    .finally(Loading.remove());
+}
+
+function fetchTrailerById(id) {
+  Loading.standard();
+  return fetch(`${BASE_URL}movie/${id}/videos?api_key=${API_KEY}`).then(
+    response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    }
+  );
+}
+
+function onBackdropTrailerClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    onCloseTrailerModal();
+  }
+}
+
+function onEscKeyPressTrailer(evt) {
+  if (evt.code === 'Escape') {
+    onCloseTrailerModal();
+  }
+}
+
+function onCloseTrailerModal() {
+  document.body.classList.remove('show-trailer');
+  trailerBackdrop.classList.add('backdrop-hidden');
+  window.removeEventListener('keydown', onEscKeyPressTrailer);
+  trailerBackdrop.removeEventListener('click', onBackdropTrailerClick);
+  window.addEventListener('keydown', onEscKeyPress);
+  trailerPlayer.setAttribute('src', `#`);
 }
