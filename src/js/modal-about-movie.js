@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+const notPic = new URL('../images/candy-cane.jpg', import.meta.url);
 
 Loading.init({ svgColor: '#b92f2c' });
 
@@ -100,7 +101,7 @@ function onOpenModal(movieId) {
           'alt',
           "Sorry, we don't have a poster of this movie"
         );
-        filmImageEl.setAttribute('src', './images/candy-cane.jpg');
+        filmImageEl.setAttribute('src', notPic);
       } else {
         filmImageEl.setAttribute('alt', 'Movie poster');
         filmImageEl.setAttribute(
