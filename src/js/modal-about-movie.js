@@ -241,7 +241,6 @@ function handleQueueStorage(evt) {
   }
 }
 
-<<<<<<< Updated upstream
 const trailerBtnEl = document.querySelector('.movie-trailer');
 const trailerBackdrop = document.querySelector('.trailer-backdrop');
 const trailerContainer = document.querySelector('.trailer-container');
@@ -302,6 +301,3 @@ function onCloseTrailerModal() {
   window.addEventListener('keydown', onEscKeyPress);
   trailerPlayer.setAttribute('src', `#`);
 }
-=======
-// 
->>>>>>> Stashed changes
