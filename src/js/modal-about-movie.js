@@ -248,12 +248,12 @@ const trailerPlayer = document.querySelector('.trailer-player');
 
 function handleTrailerBtn(evt) {
   let movieID = modalMovie.getAttribute('data-id');
-  console.log('movieID:', movieID); //----------------забрати-------
+ 
 
   fetchTrailerById(movieID)
     .then(video => {
       movieTrailerURL = video.results[0];
-      console.log('movieTrailerURL:', movieTrailerURL.key); //-------
+      
 
       trailerBackdrop.classList.remove('backdrop-hidden');
       document.body.classList.add('show-trailer');
