@@ -14,7 +14,13 @@ body.show-modal .backdrop {
 }
 
 body.show-modal .modal-about-film {
-  transform: translate(-50%, -50%) scale(1);
+  top: 0;
+  transform: translate(-50%, 0%) scale(1);
+
+  @media screen and (min-width: 768px) {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 body.show-modal {
@@ -133,6 +139,10 @@ body.show-modal {
   }
 }
 
+.image-container {
+  position: relative;
+}
+
 .modal-about-film-image {
   // width: 100%;
   // height: auto;
@@ -151,6 +161,57 @@ body.show-modal {
   @media screen and (min-width: $desktop) {
     width: 375px;
     height: 478px;
+  }
+}
+
+.movie-trailer {
+  position: absolute;
+  top: 2;
+  right: 2;
+  padding: 5px 10px;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  background-color: #b92f2c;
+  transition-property: color, background-color;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: $tablet) {
+    padding: 8px 15px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 10px 20px;
+  }
+
+  &:hover {
+    color: #b92f2c;
+    background-color: #ffffff;
+    cursor: pointer;
+  }
+}
+
+.trailer-icon {
+  width: 20px;
+  height: 20px;
+
+  @media screen and (min-width: $tablet) {
+    width: 25px;
+    height: 25px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -471,4 +532,59 @@ body.show-modal {
   &:hover {
     color: #000000;
   }
+}
+
+body.show-trailer .trailer-backdrop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+  overflow: auto;
+}
+
+body.show-trailer .trailer-container {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.trailer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity $time-transition, visibility $time-transition;
+}
+
+.trailer-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  margin: auto;
+  padding: 0px;
+
+  width: 90vw;
+  height: 50vw;
+
+  transform: translate(-50%, -50%) scale(0.02);
+  transition: transform $time-transition;
+
+  @media screen and (min-width: $tablet) {
+    width: 80vw;
+    height: 44.444vw;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 60vw;
+    height: 33.333vw;
+  }
+}
+
+.trailer-player {
 }
