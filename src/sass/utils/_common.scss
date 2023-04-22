@@ -5,7 +5,7 @@ html{
 body {
     height: 100%;
     color: $color-primary-dark;
-    font-family: $font-site;
+    font-family: roboto, sans-serif;
     @include font(500, 18, 22, 0.02);
 }
 

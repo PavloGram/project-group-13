@@ -1,11 +1,8 @@
-@import './import-files';
 @import './base-settigs';
-// @import'./myLibrary/mylibrary';
 @import './spinner';
 @import './footer';
 @import './team-info';
 @import './container';
-@import './pagination';
 @import './utils/normalize';
 @import './utils/variabless';
 @import './utils/mixin';
@@ -13,8 +10,10 @@
 @import './header';
 @import './myLibrary/mylibrary';
 @import './film-cards';
-
-
-
+@import '~node_modules/modern-normalize/modern-normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+@import './spinner';
 @import './modal-about-movie';
 @import './input-error';
+@import './pag';
+@import url('https://uicdn.toast.com/tui.pagination/latest/tui-pagination.css');

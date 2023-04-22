@@ -4,15 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+       <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./sass/index.scss" />
-    <!-- <script type="module" src="./index.js"></script> -->
   </head>
   <body>
     <div class="wrep">
@@ -28,10 +23,7 @@
               />
               <div class="error-input is-hidden">
                 <p>We couldn't find the movie</p>
-                <figure class="cat-error">
-                  <img src="./image/cat.gif" alt="cat" />
-                </figure>
-                <p>Please try another value</p>
+                 <p>Please try another value</p>
               </div>
               <button class="search__btn" type="submit">
                 <img
@@ -65,51 +57,47 @@
             </a>
           </div>
         </div>
-        <!-- <include src="./partials/header.html"></include> -->
       </header>
       <main class="main">
-        <img src="./image/nomovies.png" alt="no movies" class="start is-hidden" />
+        <img
+          src="./images/nomovies.png"
+          alt="no movies"
+          class="start is-hidden"
+        />
         <div class="container-cards">
           <include src="./partials/film-cards.html"></include>
-                 </div>
-  
-         <!-- SPINNER 1-->
-       <div class="spinner-box"> 
-   <div class="preloader">
-  <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-    <path fill="currentColor"
-      d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z">
-    </path>
-  </svg>
-</div> 
-   
-  </div> 
+        </div>
 
-    </main>
-    
+        <!-- SPINNER 1-->
+        <div class="spinner-box">
+          <div class="preloader">
+            <svg
+              class="preloader__image"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <include src="./partials/modal-about-movie.html"></include>
+
+        <div
+          id="tui-pagination-container"
+          class="tui-pagination basic-pagination"
+        ></div>
+      </main>
+
       <footer>
-        <include src="./modal-about-movie.html"></include>
-        <include src="./footer.html"></include>
-        <include src="./team.html"></include>
+        <include src="./partials/footer.html"></include>
+        <include src="./partials/team.html"></include>
       </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="module" src="./index.js"></script>
-    <!-- <script type="module" src="./modal-team.js"></script> -->
-      
-
-    <script type="module" src="./index.js"></script>
-    <!-- <script type="module" src="./modal-team.js"></script>
-    <script type="module" src="./pagination.js"></script> -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    <!-- <script type="module" src="./pagination.js"></script> -->
-
-    <!-- <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> -->
-    <!-- <script type="module" src="./js/render-markup.js"></script> -->
-    <!-- <script type="module" src="./pagination.js"></script> -->
-    <script type="module" src="./modal-about-movie.js"></script>
   </body>
 </html>

@@ -1,3 +1,4 @@
-import './spinner'
-import './modal-team.js'
-import './get_localstorage_info.js'
+import './js/spinner.js'
+import './js/modal-team.js'
+import './js/get_localstorage_info.js'
+import './js/modal-about-movie.js'

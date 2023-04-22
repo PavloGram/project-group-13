@@ -1,4 +1,4 @@
-import { renderMarkup } from './js/render-markup.js';
+import { renderMarkup } from './render-markup';
 import axios from 'axios';
 
 const STORAGE_KEY_WATCH = 'watched';
@@ -30,9 +30,14 @@ const apiInfoMovies = new ApiMovieSearch();
 
 function handleGetWatchedFilms() {
   galleryFilms.innerHTML = '';
+
   const savedData = localStorage.getItem(STORAGE_KEY_WATCH);
 
-  nomoviesimages.classList.remove('is-hidden');
+  const filmData = JSON.parse(savedData);
+
+  if (filmData.length === 0) {
+    nomoviesimages.classList.remove('is-hidden');
+  }
 
   if (queueButton.classList.contains('is-active')) {
     queueButton.classList.remove('is-active');
@@ -41,25 +46,21 @@ function handleGetWatchedFilms() {
   watchedButton.classList.add('btn-active');
   queueButton.classList.remove('btn-active');
 
+  let datagenre_ids = [];
   let films = {
     results: [],
   };
 
-  if (savedData) {
+  if (filmData) {
     try {
-      const filmData = JSON.parse(savedData);
-      // console.log(filmData);
       filmData.map(id => {
         apiInfoMovies
           .fetchMovies(id)
           .then(({ data }) => {
-            // console.log(data);
-            nomoviesimages.classList.add('is-hidden');
-            data.genre_ids = [];
+            datagenre_ids = data.genres.map(genre => genre.id);
+            data.genre_ids = datagenre_ids;
             data.genres.map(genre => data.genre_ids.push(genre.id));
             films.results.push(data);
-            // console.log(films);
-            //  console.log(data.genre_ids);
           })
           .catch(err => {
             console.log(err);
@@ -76,8 +77,11 @@ function handleGetQueueFilms() {
   galleryFilms.innerHTML = '';
 
   const savedData = localStorage.getItem(STORAGE_KEY_QUEUE);
+  const filmData = JSON.parse(savedData);
 
-  nomoviesimages.classList.remove('is-hidden');
+  if (filmData.length === 0) {
+    nomoviesimages.classList.remove('is-hidden');
+  }
 
   if (watchedButton.classList.contains('is-active')) {
     watchedButton.classList.remove('is-active');
@@ -86,22 +90,19 @@ function handleGetQueueFilms() {
   watchedButton.classList.remove('btn-active');
   queueButton.classList.add('btn-active');
 
+  let datagenre_ids = [];
   let films = {
     results: [],
   };
 
-  if (savedData) {
+  if (filmData) {
     try {
-      const filmData = JSON.parse(savedData);
-      // console.log(filmData);
-
       filmData.map(id => {
         apiInfoMovies
           .fetchMovies(id)
           .then(({ data }) => {
-            // console.log(data);
-            nomoviesimages.classList.add('is-hidden');
-            data.genre_ids = [];
+            datagenre_ids = data.genres.map(genre => genre.id);
+            data.genre_ids = datagenre_ids;
             data.genres.map(genre => data.genre_ids.push(genre.id));
             films.results.push(data);
             // console.log(films);
@@ -120,3 +121,27 @@ function handleGetQueueFilms() {
 watchedButton.addEventListener('click', handleGetWatchedFilms);
 queueButton.addEventListener('click', handleGetQueueFilms);
 window.addEventListener('load', handleGetWatchedFilms);
+
+const addRemoveWatchedBtn = document.querySelector('.add-watched-btn');
+const addRemoveQueueBtn = document.querySelector('.add-queue-btn');
+
+addRemoveWatchedBtn.addEventListener('click', showMenW);
+addRemoveQueueBtn.addEventListener('click', showMenQ);
+
+function showMenW() {
+  const savedDataLocal = localStorage.getItem(STORAGE_KEY_WATCH);
+  const filmDatalocal = JSON.parse(savedDataLocal);
+
+  if (filmDatalocal.length === 0) {
+    nomoviesimages.classList.remove('is-hidden');
+  }
+}
+
+function showMenQ() {
+  const savedDataLocal = localStorage.getItem(STORAGE_KEY_QUEUE);
+  const filmDatalocal = JSON.parse(savedDataLocal);
+
+  if (filmDatalocal.length === 0) {
+    nomoviesimages.classList.remove('is-hidden');
+  }
+}
